@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Qwirkle_Interface", "Qwirkle_Interface\Qwirkle_Interface.vbproj", "{60881BCD-D7A9-49A5-8864-7975375CE0DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QwirkleLibrary", "QwirkleLibrary\QwirkleLibrary.csproj", "{60CC3FF5-B98A-414C-861E-2FCB1FC20278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QwirkleTests", "QwirkleTests\QwirkleTests.csproj", "{57BED116-4673-49F5-BDFA-3249579D0EAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{60881BCD-D7A9-49A5-8864-7975375CE0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60881BCD-D7A9-49A5-8864-7975375CE0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60881BCD-D7A9-49A5-8864-7975375CE0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CC3FF5-B98A-414C-861E-2FCB1FC20278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CC3FF5-B98A-414C-861E-2FCB1FC20278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CC3FF5-B98A-414C-861E-2FCB1FC20278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CC3FF5-B98A-414C-861E-2FCB1FC20278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BED116-4673-49F5-BDFA-3249579D0EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BED116-4673-49F5-BDFA-3249579D0EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BED116-4673-49F5-BDFA-3249579D0EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BED116-4673-49F5-BDFA-3249579D0EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
