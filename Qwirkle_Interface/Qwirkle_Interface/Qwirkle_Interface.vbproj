@@ -116,5 +116,11 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QwirkleLibrary\QwirkleLibrary.csproj">
+      <Project>{60cc3ff5-b98a-414c-861e-2fcb1fc20278}</Project>
+      <Name>QwirkleLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
