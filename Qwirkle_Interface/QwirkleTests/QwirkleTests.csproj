@@ -52,7 +52,6 @@
     <Compile Include="JoueurTest.cs" />
     <Compile Include="PiocheTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TuileTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

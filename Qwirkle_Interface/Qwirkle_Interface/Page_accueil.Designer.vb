@@ -28,26 +28,26 @@ Partial Class Page_accueil
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Panelj3 = New System.Windows.Forms.Panel()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panelj1 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panelj4 = New System.Windows.Forms.Panel()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panelj2 = New System.Windows.Forms.Panel()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.commencer = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        Me.Panelj3.SuspendLayout()
+        Me.Panelj1.SuspendLayout()
+        Me.Panelj4.SuspendLayout()
+        Me.Panelj2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -103,10 +103,10 @@ Partial Class Page_accueil
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Panel4)
-        Me.GroupBox1.Controls.Add(Me.Panel2)
-        Me.GroupBox1.Controls.Add(Me.Panel5)
-        Me.GroupBox1.Controls.Add(Me.Panel3)
+        Me.GroupBox1.Controls.Add(Me.Panelj3)
+        Me.GroupBox1.Controls.Add(Me.Panelj1)
+        Me.GroupBox1.Controls.Add(Me.Panelj4)
+        Me.GroupBox1.Controls.Add(Me.Panelj2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 96)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(514, 206)
@@ -114,14 +114,25 @@ Partial Class Page_accueil
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Noms des joueurs"
         '
-        'Panel4
+        'Label6
         '
-        Me.Panel4.Controls.Add(Me.TextBox3)
-        Me.Panel4.Controls.Add(Me.Label4)
-        Me.Panel4.Location = New System.Drawing.Point(24, 101)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(224, 71)
-        Me.Panel4.TabIndex = 3
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(24, 179)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(471, 16)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Les joueurs saisissent leurs noms dans l'ordre dans lequel ils souhaitent jouer."
+        '
+        'Panelj3
+        '
+        Me.Panelj3.Controls.Add(Me.TextBox3)
+        Me.Panelj3.Controls.Add(Me.Label4)
+        Me.Panelj3.Enabled = False
+        Me.Panelj3.Location = New System.Drawing.Point(24, 101)
+        Me.Panelj3.Name = "Panelj3"
+        Me.Panelj3.Size = New System.Drawing.Size(224, 71)
+        Me.Panelj3.TabIndex = 3
         '
         'TextBox3
         '
@@ -139,14 +150,14 @@ Partial Class Page_accueil
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Nom du joueur 3"
         '
-        'Panel2
+        'Panelj1
         '
-        Me.Panel2.Controls.Add(Me.TextBox1)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(24, 19)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(224, 68)
-        Me.Panel2.TabIndex = 3
+        Me.Panelj1.Controls.Add(Me.TextBox1)
+        Me.Panelj1.Controls.Add(Me.Label2)
+        Me.Panelj1.Location = New System.Drawing.Point(24, 19)
+        Me.Panelj1.Name = "Panelj1"
+        Me.Panelj1.Size = New System.Drawing.Size(224, 68)
+        Me.Panelj1.TabIndex = 3
         '
         'TextBox1
         '
@@ -164,14 +175,15 @@ Partial Class Page_accueil
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Nom du joueur 1"
         '
-        'Panel5
+        'Panelj4
         '
-        Me.Panel5.Controls.Add(Me.TextBox4)
-        Me.Panel5.Controls.Add(Me.Label5)
-        Me.Panel5.Location = New System.Drawing.Point(262, 101)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(224, 71)
-        Me.Panel5.TabIndex = 3
+        Me.Panelj4.Controls.Add(Me.TextBox4)
+        Me.Panelj4.Controls.Add(Me.Label5)
+        Me.Panelj4.Enabled = False
+        Me.Panelj4.Location = New System.Drawing.Point(262, 101)
+        Me.Panelj4.Name = "Panelj4"
+        Me.Panelj4.Size = New System.Drawing.Size(224, 71)
+        Me.Panelj4.TabIndex = 3
         '
         'TextBox4
         '
@@ -189,14 +201,14 @@ Partial Class Page_accueil
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Nom du joueur 4"
         '
-        'Panel3
+        'Panelj2
         '
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Location = New System.Drawing.Point(262, 19)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(224, 68)
-        Me.Panel3.TabIndex = 2
+        Me.Panelj2.Controls.Add(Me.TextBox2)
+        Me.Panelj2.Controls.Add(Me.Label3)
+        Me.Panelj2.Location = New System.Drawing.Point(262, 19)
+        Me.Panelj2.Name = "Panelj2"
+        Me.Panelj2.Size = New System.Drawing.Size(224, 68)
+        Me.Panelj2.TabIndex = 2
         '
         'TextBox2
         '
@@ -224,17 +236,7 @@ Partial Class Page_accueil
         Me.commencer.Text = "Commencer à jouer"
         Me.commencer.UseVisualStyleBackColor = True
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(24, 179)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(471, 16)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Les joueurs saisissent leurs noms dans l'ordre dans lequel ils souhaitent jouer."
-        '
-        'Form1
+        'Page_accueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -243,19 +245,19 @@ Partial Class Page_accueil
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "Page_accueil"
         Me.Text = "Qwirkle"
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        Me.Panelj3.ResumeLayout(False)
+        Me.Panelj3.PerformLayout()
+        Me.Panelj1.ResumeLayout(False)
+        Me.Panelj1.PerformLayout()
+        Me.Panelj4.ResumeLayout(False)
+        Me.Panelj4.PerformLayout()
+        Me.Panelj2.ResumeLayout(False)
+        Me.Panelj2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -267,16 +269,16 @@ Partial Class Page_accueil
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panelj3 As Panel
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panelj1 As Panel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panelj4 As Panel
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panelj2 As Panel
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents commencer As Button
