@@ -11,17 +11,24 @@ namespace QwirkleLibrary
         private string name;
         private int points;
         private int numero; //Ceci à été ajouté pour pouvois gérer les tours de joueurs qui jouent et n'apparait pas dans le diagramme de classe.
+        private int[] main;
 
-        public Joueur(string name, int points, int numero)
+        public Joueur(string name, int points, int numero, int[] main)
         {
             this.name = name;
             this.points = points;
             this.numero = numero;
+            this.main = main;
         }
 
         public string Get_name()
         {
             return name;
+        }
+
+        public int [] Get_main()
+        {
+            return main;
         }
 
         public void Set_name(string name)
@@ -47,6 +54,11 @@ namespace QwirkleLibrary
         public void Set_numero(int numero)
         {
             this.numero = numero;
+        }
+
+        public void Set_main(int[] main)
+        {
+            this.main = main;
         }
 
     }
