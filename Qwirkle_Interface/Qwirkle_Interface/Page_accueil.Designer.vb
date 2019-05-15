@@ -24,22 +24,22 @@ Partial Class Page_accueil
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panelj3 = New System.Windows.Forms.Panel()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBoxJ3 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panelj1 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBoxJ1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panelj4 = New System.Windows.Forms.Panel()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBoxJ4 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panelj2 = New System.Windows.Forms.Panel()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBoxJ2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.commencer = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -63,47 +63,52 @@ Partial Class Page_accueil
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.RadioButton1)
+        Me.Panel1.Controls.Add(Me.RadioButton2)
+        Me.Panel1.Controls.Add(Me.RadioButton3)
         Me.Panel1.Location = New System.Drawing.Point(16, 46)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(685, 49)
         Me.Panel1.TabIndex = 1
         '
-        'Button3
+        'RadioButton1
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(448, 4)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(200, 39)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "4 Joueurs"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.RadioButton1.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(32, 6)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(175, 40)
+        Me.RadioButton1.TabIndex = 4
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "2 Joueurs"
+        Me.RadioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'RadioButton2
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(240, 4)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(200, 39)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "3 Joueurs"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.RadioButton2.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton2.Location = New System.Drawing.Point(253, 6)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(175, 40)
+        Me.RadioButton2.TabIndex = 3
+        Me.RadioButton2.Text = "3 Joueurs"
+        Me.RadioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton2.UseVisualStyleBackColor = True
         '
-        'Button1
+        'RadioButton3
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(32, 4)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(200, 39)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "2 Joueurs"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.RadioButton3.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton3.Location = New System.Drawing.Point(473, 6)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(175, 40)
+        Me.RadioButton3.TabIndex = 2
+        Me.RadioButton3.Text = "4 Joueurs"
+        Me.RadioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -113,9 +118,9 @@ Partial Class Page_accueil
         Me.GroupBox1.Controls.Add(Me.Panelj4)
         Me.GroupBox1.Controls.Add(Me.Panelj2)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 118)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(685, 254)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
@@ -134,22 +139,22 @@ Partial Class Page_accueil
         '
         'Panelj3
         '
-        Me.Panelj3.Controls.Add(Me.TextBox3)
+        Me.Panelj3.Controls.Add(Me.TextBoxJ3)
         Me.Panelj3.Controls.Add(Me.Label4)
         Me.Panelj3.Enabled = False
         Me.Panelj3.Location = New System.Drawing.Point(32, 124)
-        Me.Panelj3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panelj3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panelj3.Name = "Panelj3"
         Me.Panelj3.Size = New System.Drawing.Size(299, 87)
         Me.Panelj3.TabIndex = 3
         '
-        'TextBox3
+        'TextBoxJ3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(56, 38)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(188, 22)
-        Me.TextBox3.TabIndex = 1
+        Me.TextBoxJ3.Location = New System.Drawing.Point(56, 38)
+        Me.TextBoxJ3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxJ3.Name = "TextBoxJ3"
+        Me.TextBoxJ3.Size = New System.Drawing.Size(188, 22)
+        Me.TextBoxJ3.TabIndex = 1
         '
         'Label4
         '
@@ -163,21 +168,21 @@ Partial Class Page_accueil
         '
         'Panelj1
         '
-        Me.Panelj1.Controls.Add(Me.TextBox1)
+        Me.Panelj1.Controls.Add(Me.TextBoxJ1)
         Me.Panelj1.Controls.Add(Me.Label2)
         Me.Panelj1.Location = New System.Drawing.Point(32, 23)
-        Me.Panelj1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panelj1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panelj1.Name = "Panelj1"
         Me.Panelj1.Size = New System.Drawing.Size(299, 84)
         Me.Panelj1.TabIndex = 3
         '
-        'TextBox1
+        'TextBoxJ1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(56, 38)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(188, 22)
-        Me.TextBox1.TabIndex = 1
+        Me.TextBoxJ1.Location = New System.Drawing.Point(56, 38)
+        Me.TextBoxJ1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxJ1.Name = "TextBoxJ1"
+        Me.TextBoxJ1.Size = New System.Drawing.Size(188, 22)
+        Me.TextBoxJ1.TabIndex = 1
         '
         'Label2
         '
@@ -191,22 +196,22 @@ Partial Class Page_accueil
         '
         'Panelj4
         '
-        Me.Panelj4.Controls.Add(Me.TextBox4)
+        Me.Panelj4.Controls.Add(Me.TextBoxJ4)
         Me.Panelj4.Controls.Add(Me.Label5)
         Me.Panelj4.Enabled = False
         Me.Panelj4.Location = New System.Drawing.Point(349, 124)
-        Me.Panelj4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panelj4.Margin = New System.Windows.Forms.Padding(4)
         Me.Panelj4.Name = "Panelj4"
         Me.Panelj4.Size = New System.Drawing.Size(299, 87)
         Me.Panelj4.TabIndex = 3
         '
-        'TextBox4
+        'TextBoxJ4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(57, 38)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(188, 22)
-        Me.TextBox4.TabIndex = 1
+        Me.TextBoxJ4.Location = New System.Drawing.Point(57, 38)
+        Me.TextBoxJ4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxJ4.Name = "TextBoxJ4"
+        Me.TextBoxJ4.Size = New System.Drawing.Size(188, 22)
+        Me.TextBoxJ4.TabIndex = 1
         '
         'Label5
         '
@@ -220,21 +225,21 @@ Partial Class Page_accueil
         '
         'Panelj2
         '
-        Me.Panelj2.Controls.Add(Me.TextBox2)
+        Me.Panelj2.Controls.Add(Me.TextBoxJ2)
         Me.Panelj2.Controls.Add(Me.Label3)
         Me.Panelj2.Location = New System.Drawing.Point(349, 23)
-        Me.Panelj2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panelj2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panelj2.Name = "Panelj2"
         Me.Panelj2.Size = New System.Drawing.Size(299, 84)
         Me.Panelj2.TabIndex = 2
         '
-        'TextBox2
+        'TextBoxJ2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(57, 39)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(188, 22)
-        Me.TextBox2.TabIndex = 1
+        Me.TextBoxJ2.Location = New System.Drawing.Point(57, 39)
+        Me.TextBoxJ2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxJ2.Name = "TextBoxJ2"
+        Me.TextBoxJ2.Size = New System.Drawing.Size(188, 22)
+        Me.TextBoxJ2.TabIndex = 1
         '
         'Label3
         '
@@ -250,7 +255,7 @@ Partial Class Page_accueil
         '
         Me.commencer.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.commencer.Location = New System.Drawing.Point(16, 379)
-        Me.commencer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.commencer.Margin = New System.Windows.Forms.Padding(4)
         Me.commencer.Name = "commencer"
         Me.commencer.Size = New System.Drawing.Size(685, 63)
         Me.commencer.TabIndex = 3
@@ -266,7 +271,7 @@ Partial Class Page_accueil
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Page_accueil"
         Me.Text = "Qwirkle"
         Me.Panel1.ResumeLayout(False)
@@ -287,22 +292,22 @@ Partial Class Page_accueil
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Panelj3 As Panel
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBoxJ3 As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Panelj1 As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxJ1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Panelj4 As Panel
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBoxJ4 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Panelj2 As Panel
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBoxJ2 As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents commencer As Button
     Friend WithEvents Label6 As Label
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton3 As RadioButton
 End Class

@@ -1,20 +1,33 @@
-﻿Public Class Page_accueil
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+﻿Imports QwirkleLibrary
+Public Class Page_accueil
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         Panelj4.Enabled = False
         Panelj3.Enabled = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         Panelj3.Enabled = True
         Panelj4.Enabled = False
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
         Panelj4.Enabled = True
         Panelj3.Enabled = True
     End Sub
 
     Private Sub commencer_Click(sender As Object, e As EventArgs) Handles commencer.Click
-        Jeu.ShowDialog()
+        If (RadioButton1.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "") Then
+            Dim Joueur1 As Joueur
+            Joueur1.Set_name(TextBoxJ1.Text)
+            Joueur1.Set_numero(1)
+            Jeu.ShowDialog()
+        ElseIf (RadioButton2.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "" And TextBoxJ3.Text IsNot "") Then
+            Jeu.ShowDialog()
+        ElseIf (RadioButton3.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "" And TextBoxJ3.Text IsNot "" And TextBoxJ4.Text IsNot "") Then
+            Jeu.ShowDialog()
+        Else
+            MsgBox("Veuillez entrez des noms de joueurs !")
+        End If
+
     End Sub
 End Class

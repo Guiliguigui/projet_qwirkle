@@ -65,7 +65,7 @@ Partial Class Jeu
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(16, 15)
-        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(792, 513)
         Me.FlowLayoutPanel1.TabIndex = 0
@@ -78,7 +78,7 @@ Partial Class Jeu
         Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(829, 15)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 513)
         Me.Panel1.TabIndex = 1
@@ -90,10 +90,11 @@ Partial Class Jeu
         Me.Panel5.Controls.Add(Me.Label16)
         Me.Panel5.Controls.Add(Me.Label17)
         Me.Panel5.Location = New System.Drawing.Point(4, 251)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(260, 75)
         Me.Panel5.TabIndex = 6
+        Me.Panel5.Visible = False
         '
         'J4PtsLast
         '
@@ -108,7 +109,7 @@ Partial Class Jeu
         'LabelScoreJ4
         '
         Me.LabelScoreJ4.AutoSize = True
-        Me.LabelScoreJ4.Location = New System.Drawing.Point(127, 16)
+        Me.LabelScoreJ4.Location = New System.Drawing.Point(178, 16)
         Me.LabelScoreJ4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelScoreJ4.Name = "LabelScoreJ4"
         Me.LabelScoreJ4.Size = New System.Drawing.Size(24, 17)
@@ -142,10 +143,11 @@ Partial Class Jeu
         Me.Panel4.Controls.Add(Me.Label12)
         Me.Panel4.Controls.Add(Me.Label13)
         Me.Panel4.Location = New System.Drawing.Point(4, 169)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(260, 75)
         Me.Panel4.TabIndex = 5
+        Me.Panel4.Visible = False
         '
         'J3PtsLast
         '
@@ -160,7 +162,7 @@ Partial Class Jeu
         'LabelScoreJ3
         '
         Me.LabelScoreJ3.AutoSize = True
-        Me.LabelScoreJ3.Location = New System.Drawing.Point(127, 16)
+        Me.LabelScoreJ3.Location = New System.Drawing.Point(178, 16)
         Me.LabelScoreJ3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelScoreJ3.Name = "LabelScoreJ3"
         Me.LabelScoreJ3.Size = New System.Drawing.Size(24, 17)
@@ -194,7 +196,7 @@ Partial Class Jeu
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.Label9)
         Me.Panel3.Location = New System.Drawing.Point(4, 86)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(260, 75)
         Me.Panel3.TabIndex = 4
@@ -212,7 +214,7 @@ Partial Class Jeu
         'LabelScoreJ2
         '
         Me.LabelScoreJ2.AutoSize = True
-        Me.LabelScoreJ2.Location = New System.Drawing.Point(127, 16)
+        Me.LabelScoreJ2.Location = New System.Drawing.Point(178, 16)
         Me.LabelScoreJ2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelScoreJ2.Name = "LabelScoreJ2"
         Me.LabelScoreJ2.Size = New System.Drawing.Size(24, 17)
@@ -245,7 +247,7 @@ Partial Class Jeu
         Me.Panel6.Controls.Add(Me.LabelNumTour)
         Me.Panel6.Controls.Add(Me.Label18)
         Me.Panel6.Location = New System.Drawing.Point(4, 363)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(260, 146)
         Me.Panel6.TabIndex = 3
@@ -287,7 +289,7 @@ Partial Class Jeu
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(260, 75)
         Me.Panel2.TabIndex = 0
@@ -305,7 +307,7 @@ Partial Class Jeu
         'LabelScoreJ1
         '
         Me.LabelScoreJ1.AutoSize = True
-        Me.LabelScoreJ1.Location = New System.Drawing.Point(127, 16)
+        Me.LabelScoreJ1.Location = New System.Drawing.Point(178, 16)
         Me.LabelScoreJ1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelScoreJ1.Name = "LabelScoreJ1"
         Me.LabelScoreJ1.Size = New System.Drawing.Size(24, 17)
@@ -330,12 +332,12 @@ Partial Class Jeu
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(129, 17)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Score du joueur 1 :"
+        Me.Label2.Text = "Score de joueur 1 :"
         '
         'Panel7
         '
         Me.Panel7.Location = New System.Drawing.Point(16, 535)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(372, 53)
         Me.Panel7.TabIndex = 2
@@ -343,7 +345,7 @@ Partial Class Jeu
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(416, 535)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(72, 53)
         Me.Button1.TabIndex = 3
@@ -353,7 +355,7 @@ Partial Class Jeu
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(496, 535)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(72, 53)
         Me.Button2.TabIndex = 4
@@ -363,7 +365,7 @@ Partial Class Jeu
         'Button4
         '
         Me.Button4.Location = New System.Drawing.Point(656, 535)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(72, 53)
         Me.Button4.TabIndex = 6
@@ -383,7 +385,7 @@ Partial Class Jeu
         'Panel8
         '
         Me.Panel8.Location = New System.Drawing.Point(576, 535)
-        Me.Panel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(72, 53)
         Me.Panel8.TabIndex = 8
@@ -401,7 +403,7 @@ Partial Class Jeu
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Jeu"
         Me.Text = "Jeu"
         Me.Panel1.ResumeLayout(False)
