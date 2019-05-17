@@ -58,6 +58,7 @@ namespace QwirkleLibrary
                 return false;
             }
         }
+
         public int[,] Get_TuilesRestantes()
         {
             return tab_TuilesRestantes;
