@@ -17,6 +17,9 @@ Public Class Page_accueil
 
     Private Sub commencer_Click(sender As Object, e As EventArgs) Handles commencer.Click
         If (RadioButton1.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "") Then
+            Dim Joueur1 As Joueur
+            Joueur1.Set_name(TextBoxJ1.Text)
+            Joueur1.Set_numero(1)
             Jeu.ShowDialog()
         ElseIf (RadioButton2.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "" And TextBoxJ3.Text IsNot "") Then
             Jeu.ShowDialog()
