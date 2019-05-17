@@ -18,5 +18,7 @@ Public Class Jeu
         End If
     End Sub
 
+    Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
 
+    End Sub
 End Class
