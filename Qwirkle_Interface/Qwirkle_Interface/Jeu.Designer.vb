@@ -22,7 +22,7 @@ Partial Class Jeu
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pnlPlateau = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.J4PtsLast = New System.Windows.Forms.Label()
@@ -48,7 +48,7 @@ Partial Class Jeu
         Me.LabelScoreJ1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.pnlMain = New System.Windows.Forms.Panel()
         Me.btnValide = New System.Windows.Forms.Button()
         Me.btnAnnule = New System.Windows.Forms.Button()
         Me.btnRetourMenu = New System.Windows.Forms.Button()
@@ -62,12 +62,12 @@ Partial Class Jeu
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'FlowLayoutPanel1
+        'pnlPlateau
         '
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(12, 12)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(594, 417)
-        Me.FlowLayoutPanel1.TabIndex = 0
+        Me.pnlPlateau.Location = New System.Drawing.Point(12, 12)
+        Me.pnlPlateau.Name = "pnlPlateau"
+        Me.pnlPlateau.Size = New System.Drawing.Size(594, 417)
+        Me.pnlPlateau.TabIndex = 0
         '
         'Panel1
         '
@@ -308,12 +308,12 @@ Partial Class Jeu
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Score de joueur 1 :"
         '
-        'Panel7
+        'pnlMain
         '
-        Me.Panel7.Location = New System.Drawing.Point(12, 435)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(279, 43)
-        Me.Panel7.TabIndex = 2
+        Me.pnlMain.Location = New System.Drawing.Point(12, 435)
+        Me.pnlMain.Name = "pnlMain"
+        Me.pnlMain.Size = New System.Drawing.Size(279, 43)
+        Me.pnlMain.TabIndex = 2
         '
         'btnValide
         '
@@ -368,9 +368,9 @@ Partial Class Jeu
         Me.Controls.Add(Me.btnRetourMenu)
         Me.Controls.Add(Me.btnAnnule)
         Me.Controls.Add(Me.btnValide)
-        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.pnlMain)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Controls.Add(Me.pnlPlateau)
         Me.Name = "Jeu"
         Me.Text = "Jeu"
         Me.Panel1.ResumeLayout(False)
@@ -389,7 +389,7 @@ Partial Class Jeu
 
     End Sub
 
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents pnlPlateau As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents J4PtsLast As Label
@@ -415,7 +415,7 @@ Partial Class Jeu
     Friend WithEvents LabelScoreJ1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Panel7 As Panel
+    Friend WithEvents pnlMain As Panel
     Friend WithEvents btnValide As Button
     Friend WithEvents btnAnnule As Button
     Friend WithEvents btnRetourMenu As Button
