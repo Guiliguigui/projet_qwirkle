@@ -10,8 +10,8 @@ namespace QwirkleTests
         [TestMethod]
         public void TestJoueurConstructor()
         {
-            Joueur Joueur_1 = new Joueur("Louis", 0, 1, new int[6] { 0, 0, 0, 0, 0, 0 });
-            int[] tab = new int[6] { 0, 0, 0, 0, 0, 0 };
+            Joueur Joueur_1 = new Joueur("Louis", 0, 1, new string[6] { "vide", "vide","vide","vide","vide","vide" });
+            string[] tab = new string[6] { "vide", "vide", "vide", "vide", "vide", "vide" };
 
 
             Assert.AreEqual("Louis", Joueur_1.Get_name());
