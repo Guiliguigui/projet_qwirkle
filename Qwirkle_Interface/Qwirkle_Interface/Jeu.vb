@@ -105,6 +105,10 @@ Public Class Jeu
     End Sub
 
     Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
-        MessageBox.Show("Voulez vous vraiment retourner au menu ?", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2)
+        Dim response
+        response = MessageBox.Show("Voulez vous vraiment retourner au menu ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)
+        If response = vbYes Then
+            Me.Close()
+        End If
     End Sub
 End Class
