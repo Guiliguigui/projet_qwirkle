@@ -100,4 +100,11 @@ Public Class Jeu
 
     End Sub
 
+    Private Sub btnAnnule_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
+        MessageBox.Show("Voulez vous vraiment retourner au menu ?", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2)
+    End Sub
 End Class
