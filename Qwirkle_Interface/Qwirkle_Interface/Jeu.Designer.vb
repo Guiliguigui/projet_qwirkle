@@ -319,6 +319,7 @@ Partial Class Jeu
         'btnValide
         '
         Me.btnValide.BackgroundImage = CType(resources.GetObject("btnValide.BackgroundImage"), System.Drawing.Image)
+        Me.btnValide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnValide.Location = New System.Drawing.Point(312, 435)
         Me.btnValide.Name = "btnValide"
         Me.btnValide.Size = New System.Drawing.Size(54, 43)
@@ -328,6 +329,7 @@ Partial Class Jeu
         'btnRetourMenu
         '
         Me.btnRetourMenu.BackgroundImage = CType(resources.GetObject("btnRetourMenu.BackgroundImage"), System.Drawing.Image)
+        Me.btnRetourMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnRetourMenu.Location = New System.Drawing.Point(432, 435)
         Me.btnRetourMenu.Name = "btnRetourMenu"
         Me.btnRetourMenu.Size = New System.Drawing.Size(54, 43)
@@ -346,6 +348,7 @@ Partial Class Jeu
         'Panel8
         '
         Me.Panel8.BackgroundImage = CType(resources.GetObject("Panel8.BackgroundImage"), System.Drawing.Image)
+        Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel8.Location = New System.Drawing.Point(372, 435)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(54, 43)
