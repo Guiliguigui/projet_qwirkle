@@ -29,12 +29,12 @@ Public Class Jeu
         Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
-        'For i As Byte = 1 To 6
-        '    AddHandler Me.pnlMain.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
-        'Next
+        For i As Byte = 1 To 6
+            AddHandler Me.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
+        Next
+
+
         Dim Memorypic As PictureBox
-
-
         For i As Byte = 1 To 30
             For j As Byte = 1 To 30
 
@@ -42,7 +42,6 @@ Public Class Jeu
                     If (j < 10) Then
 
                         Dim newpic As New PictureBox
-                        'Dim pic As PictureBox
 
                         newpic.Name = "pic0" & i & "_0" & j
 
@@ -50,26 +49,27 @@ Public Class Jeu
                         newpic.BorderStyle = BorderStyle.FixedSingle
 
                         If i = 1 AndAlso j = 1 Then
-                            newpic.Location = New Point(0, 0)
+                            newpic.Location = New Point(15, 15)
                         Else
                             If j = 1 Then
 
-                                newpic.Location = New Point(0, Memorypic.Height + Memorypic.Location.Y)
+                                newpic.Location = New Point(15, Memorypic.Height + Memorypic.Location.Y)
                             Else
 
                                 newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
                             End If
                         End If
+
+
+                        newpic.AllowDrop = False
+                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
+                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
+
                         Me.Controls.Add(newpic)
                         Memorypic = newpic
 
-                        'Me.pnlPlateau.Controls("pic0" & i & "0" & j).AllowDrop = True
-                        'AddHandler Me.pnlPlateau.Controls("pic0" & i & "0" & j).DragEnter, AddressOf pic_DragEnter
-                        'AddHandler Me.pnlPlateau.Controls("pic0" & i & "0" & j).DragDrop, AddressOf pic_DragDrop
-
                     Else
                         Dim newpic As New PictureBox
-                        'Dim pic As PictureBox
 
 
                         newpic.Name = "pic0" & i & "_" & j
@@ -79,18 +79,18 @@ Public Class Jeu
 
                         newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
 
+
+                        newpic.AllowDrop = False
+                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
+                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
+
                         Me.Controls.Add(newpic)
                         Memorypic = newpic
-
-                        'Me.pnlPlateau.Controls("pic0" & i & j).AllowDrop = True
-                        'AddHandler Me.pnlPlateau.Controls("pic0" & i & j).DragEnter, AddressOf pic_DragEnter
-                        'AddHandler Me.pnlPlateau.Controls("pic0" & i & j).DragDrop, AddressOf pic_DragDrop
                     End If
 
                 Else
                     If (j < 10) Then
                         Dim newpic As New PictureBox
-                        'Dim pic As PictureBox
 
                         newpic.Name = "pic" & i & "_0" & j
 
@@ -100,22 +100,23 @@ Public Class Jeu
 
                         If j = 1 Then
 
-                            newpic.Location = New Point(0, Memorypic.Height + Memorypic.Location.Y)
+                            newpic.Location = New Point(15, Memorypic.Height + Memorypic.Location.Y)
                         Else
 
                             newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
                         End If
 
 
+
+                        newpic.AllowDrop = False
+                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
+                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
+
                         Me.Controls.Add(newpic)
                         Memorypic = newpic
-                        'Me.pnlPlateau.Controls("pic" & i & j).AllowDrop = True
-                        'AddHandler Me.pnlPlateau.Controls("pic" & i & "0" & j).DragEnter, AddressOf pic_DragEnter
-                        'AddHandler Me.pnlPlateau.Controls("pic" & i & "0" & j).DragDrop, AddressOf pic_DragDrop
 
                     Else
                         Dim newpic As New PictureBox
-                        'Dim pic As PictureBox
 
                         newpic.Name = "pic" & i & "_" & j
 
@@ -124,54 +125,58 @@ Public Class Jeu
 
                         newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
 
+
+                        newpic.AllowDrop = False
+                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
+                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
+
                         Me.Controls.Add(newpic)
                         Memorypic = newpic
-                        'Me.pnlPlateau.Controls("pic" & i & j).AllowDrop = True
-                        'AddHandler Me.pnlPlateau.Controls("pic" & i & j).DragEnter, AddressOf pic_DragEnter
-                        'AddHandler Me.pnlPlateau.Controls("pic" & i & j).DragDrop, AddressOf pic_DragDrop
                     End If
                 End If
             Next
         Next
+
+        Me.Controls("pic15_15").AllowDrop = True
+        Me.Controls("pic15_15").BackColor = SystemColors.ControlDark
+
+
     End Sub
 
-    'Private Sub pic_MouseMove(sender As Object, e As MouseEventArgs) Handles picMain1.mouseMove
-    '    Dim effetRealise As DragDropEffects
-    '    Dim pic As PictureBox = sender
+    Private Sub pic_MouseMove(sender As Object, e As MouseEventArgs)
+        Dim effetRealise As DragDropEffects
+        Dim pic As PictureBox = sender
 
-    '    If e.Button = MouseButtons.Left AndAlso pic.Image IsNot Nothing Then
-    '        pic.AllowDrop = False
-    '        effetRealise = pic.DoDragDrop(pic.BackColor, DragDropEffects.Move)
-    '        If effetRealise = DragDropEffects.Move Then
-    '            pic.Image = Nothing
-    '        End If
-    '        pic.AllowDrop = True
-    '    End If
-    'End Sub
+        If e.Button = MouseButtons.Left AndAlso pic.Image IsNot Nothing Then
+            pic.AllowDrop = False
+            effetRealise = pic.DoDragDrop(pic.BackColor, DragDropEffects.Move)
+            If effetRealise = DragDropEffects.Move Then
+                pic.Image = Nothing
+            End If
+            pic.AllowDrop = True
+        End If
+    End Sub
 
-    'Private Sub pic_DragEnter(sender As Object, e As DragEventArgs) Handles pic0101.DragEnter
+    Private Sub pic_DragEnter(sender As Object, e As DragEventArgs)
 
-    '    If e.Data.GetDataPresent(DataFormats.Bitmap) Then
-    '        e.Effect = DragDropEffects.Move
-    '    Else
-    '        e.Effect = DragDropEffects.None
-    '    End If
+        If e.Data.GetDataPresent(DataFormats.Bitmap) Then
+            e.Effect = DragDropEffects.Move
+        Else
+            e.Effect = DragDropEffects.None
+        End If
 
-    'End Sub
+    End Sub
 
-    'Private Sub pic_DragDrop(sender As Object, e As DragEventArgs) Handles pic0101.DragDrop
-    '    Dim pic As PictureBox = sender
-    '    pic.Image = e.Data.GetData(DataFormats.Bitmap)
+    Private Sub pic_DragDrop(sender As Object, e As DragEventArgs)
+        Dim pic As PictureBox = sender
+        pic.Image = e.Data.GetData(DataFormats.Bitmap)
 
-    'End Sub
+    End Sub
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
 
     End Sub
 
-    Private Sub btnAnnule_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
         Dim response

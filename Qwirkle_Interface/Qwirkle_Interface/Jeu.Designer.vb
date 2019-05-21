@@ -23,7 +23,6 @@ Partial Class Jeu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Jeu))
-        Me.pnlPlateau = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PanelJ4 = New System.Windows.Forms.Panel()
         Me.J4PtsLast = New System.Windows.Forms.Label()
@@ -49,26 +48,30 @@ Partial Class Jeu
         Me.LabelScoreJ1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LabelNomJ1 = New System.Windows.Forms.Label()
-        Me.pnlMain = New System.Windows.Forms.Panel()
         Me.btnValide = New System.Windows.Forms.Button()
         Me.btnRetourMenu = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.RestePioche = New System.Windows.Forms.Label()
+        Me.picMain6 = New System.Windows.Forms.PictureBox()
+        Me.picMain5 = New System.Windows.Forms.PictureBox()
+        Me.picMain4 = New System.Windows.Forms.PictureBox()
+        Me.picMain3 = New System.Windows.Forms.PictureBox()
+        Me.picMain2 = New System.Windows.Forms.PictureBox()
+        Me.picMain1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.PanelJ4.SuspendLayout()
         Me.PanelJ3.SuspendLayout()
         Me.PanelJ2.SuspendLayout()
         Me.PanelTourJeu.SuspendLayout()
         Me.PanelJ1.SuspendLayout()
+        CType(Me.picMain6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMain5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMain4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMain3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMain2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMain1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pnlPlateau
-        '
-        Me.pnlPlateau.Location = New System.Drawing.Point(12, 12)
-        Me.pnlPlateau.Name = "pnlPlateau"
-        Me.pnlPlateau.Size = New System.Drawing.Size(594, 417)
-        Me.pnlPlateau.TabIndex = 0
         '
         'Panel1
         '
@@ -77,7 +80,7 @@ Partial Class Jeu
         Me.Panel1.Controls.Add(Me.PanelJ2)
         Me.Panel1.Controls.Add(Me.PanelTourJeu)
         Me.Panel1.Controls.Add(Me.PanelJ1)
-        Me.Panel1.Location = New System.Drawing.Point(622, 12)
+        Me.Panel1.Location = New System.Drawing.Point(509, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(201, 417)
         Me.Panel1.TabIndex = 1
@@ -309,18 +312,11 @@ Partial Class Jeu
         Me.LabelNomJ1.TabIndex = 0
         Me.LabelNomJ1.Text = "Score de joueur 1 :"
         '
-        'pnlMain
-        '
-        Me.pnlMain.Location = New System.Drawing.Point(12, 435)
-        Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(279, 43)
-        Me.pnlMain.TabIndex = 2
-        '
         'btnValide
         '
         Me.btnValide.BackgroundImage = CType(resources.GetObject("btnValide.BackgroundImage"), System.Drawing.Image)
         Me.btnValide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnValide.Location = New System.Drawing.Point(312, 435)
+        Me.btnValide.Location = New System.Drawing.Point(312, 474)
         Me.btnValide.Name = "btnValide"
         Me.btnValide.Size = New System.Drawing.Size(54, 43)
         Me.btnValide.TabIndex = 3
@@ -330,7 +326,7 @@ Partial Class Jeu
         '
         Me.btnRetourMenu.BackgroundImage = CType(resources.GetObject("btnRetourMenu.BackgroundImage"), System.Drawing.Image)
         Me.btnRetourMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRetourMenu.Location = New System.Drawing.Point(432, 435)
+        Me.btnRetourMenu.Location = New System.Drawing.Point(432, 474)
         Me.btnRetourMenu.Name = "btnRetourMenu"
         Me.btnRetourMenu.Size = New System.Drawing.Size(54, 43)
         Me.btnRetourMenu.TabIndex = 6
@@ -339,7 +335,7 @@ Partial Class Jeu
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 496)
+        Me.Label1.Location = New System.Drawing.Point(12, 535)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(210, 13)
         Me.Label1.TabIndex = 7
@@ -349,7 +345,7 @@ Partial Class Jeu
         '
         Me.Panel8.BackgroundImage = CType(resources.GetObject("Panel8.BackgroundImage"), System.Drawing.Image)
         Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel8.Location = New System.Drawing.Point(372, 435)
+        Me.Panel8.Location = New System.Drawing.Point(372, 474)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(54, 43)
         Me.Panel8.TabIndex = 8
@@ -357,26 +353,80 @@ Partial Class Jeu
         'RestePioche
         '
         Me.RestePioche.AutoSize = True
-        Me.RestePioche.Location = New System.Drawing.Point(229, 496)
+        Me.RestePioche.Location = New System.Drawing.Point(229, 535)
         Me.RestePioche.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.RestePioche.Name = "RestePioche"
         Me.RestePioche.Size = New System.Drawing.Size(16, 13)
         Me.RestePioche.TabIndex = 9
         Me.RestePioche.Text = "..."
         '
+        'picMain6
+        '
+        Me.picMain6.Image = CType(resources.GetObject("picMain6.Image"), System.Drawing.Image)
+        Me.picMain6.InitialImage = CType(resources.GetObject("picMain6.InitialImage"), System.Drawing.Image)
+        Me.picMain6.Location = New System.Drawing.Point(232, 487)
+        Me.picMain6.Name = "picMain6"
+        Me.picMain6.Size = New System.Drawing.Size(30, 30)
+        Me.picMain6.TabIndex = 11
+        Me.picMain6.TabStop = False
+        '
+        'picMain5
+        '
+        Me.picMain5.Location = New System.Drawing.Point(196, 487)
+        Me.picMain5.Name = "picMain5"
+        Me.picMain5.Size = New System.Drawing.Size(30, 30)
+        Me.picMain5.TabIndex = 12
+        Me.picMain5.TabStop = False
+        '
+        'picMain4
+        '
+        Me.picMain4.Location = New System.Drawing.Point(160, 487)
+        Me.picMain4.Name = "picMain4"
+        Me.picMain4.Size = New System.Drawing.Size(30, 30)
+        Me.picMain4.TabIndex = 13
+        Me.picMain4.TabStop = False
+        '
+        'picMain3
+        '
+        Me.picMain3.Location = New System.Drawing.Point(124, 487)
+        Me.picMain3.Name = "picMain3"
+        Me.picMain3.Size = New System.Drawing.Size(30, 30)
+        Me.picMain3.TabIndex = 14
+        Me.picMain3.TabStop = False
+        '
+        'picMain2
+        '
+        Me.picMain2.Location = New System.Drawing.Point(88, 487)
+        Me.picMain2.Name = "picMain2"
+        Me.picMain2.Size = New System.Drawing.Size(30, 30)
+        Me.picMain2.TabIndex = 15
+        Me.picMain2.TabStop = False
+        '
+        'picMain1
+        '
+        Me.picMain1.Location = New System.Drawing.Point(52, 487)
+        Me.picMain1.Name = "picMain1"
+        Me.picMain1.Size = New System.Drawing.Size(30, 30)
+        Me.picMain1.TabIndex = 16
+        Me.picMain1.TabStop = False
+        '
         'Jeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(835, 544)
+        Me.ClientSize = New System.Drawing.Size(719, 555)
+        Me.Controls.Add(Me.picMain1)
+        Me.Controls.Add(Me.picMain2)
+        Me.Controls.Add(Me.picMain3)
+        Me.Controls.Add(Me.picMain4)
+        Me.Controls.Add(Me.picMain5)
+        Me.Controls.Add(Me.picMain6)
         Me.Controls.Add(Me.RestePioche)
         Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnRetourMenu)
         Me.Controls.Add(Me.btnValide)
-        Me.Controls.Add(Me.pnlMain)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pnlPlateau)
         Me.Name = "Jeu"
         Me.Text = "Jeu"
         Me.Panel1.ResumeLayout(False)
@@ -390,12 +440,16 @@ Partial Class Jeu
         Me.PanelTourJeu.PerformLayout()
         Me.PanelJ1.ResumeLayout(False)
         Me.PanelJ1.PerformLayout()
+        CType(Me.picMain6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMain5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMain4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMain3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMain2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMain1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents pnlPlateau As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PanelJ4 As Panel
     Friend WithEvents J4PtsLast As Label
@@ -421,10 +475,15 @@ Partial Class Jeu
     Friend WithEvents LabelScoreJ1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents LabelNomJ1 As Label
-    Friend WithEvents pnlMain As Panel
     Friend WithEvents btnValide As Button
     Friend WithEvents btnRetourMenu As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel8 As Panel
     Friend WithEvents RestePioche As Label
+    Friend WithEvents picMain6 As PictureBox
+    Friend WithEvents picMain5 As PictureBox
+    Friend WithEvents picMain4 As PictureBox
+    Friend WithEvents picMain3 As PictureBox
+    Friend WithEvents picMain2 As PictureBox
+    Friend WithEvents picMain1 As PictureBox
 End Class
