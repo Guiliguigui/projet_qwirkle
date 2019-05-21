@@ -29,9 +29,9 @@ Public Class Jeu
         Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
-        'For i As Byte = 1 To 6
-        '    AddHandler Me.pnlMain.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
-        'Next
+        '    For i As Byte = 1 To 6
+        '        AddHandler Me.pnlMain.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
+        '    Next
 
         '    For i As Byte = 1 To 30
         '        For j As Byte = 1 To 30
@@ -88,13 +88,14 @@ Public Class Jeu
         '        e.Effect = DragDropEffects.None
         '    End If
 
+        'End Sub
+
+        'Private Sub pic_DragDrop(sender As Object, e As DragEventArgs) Handles pic0101.DragDrop
+        '    Dim pic As PictureBox = sender
+        '    pic.Image = e.Data.GetData(DataFormats.Bitmap)
+
+        'End Sub
     End Sub
-
-    'Private Sub pic_DragDrop(sender As Object, e As DragEventArgs) Handles pic0101.DragDrop
-    '    Dim pic As PictureBox = sender
-    '    pic.Image = e.Data.GetData(DataFormats.Bitmap)
-
-    'End Sub
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
 
