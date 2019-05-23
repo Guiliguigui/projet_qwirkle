@@ -80,7 +80,7 @@ Public Class Jeu
 
         If e.Button = MouseButtons.Left AndAlso pic.Image IsNot Nothing Then
             pic.AllowDrop = False
-            effetRealise = pic.DoDragDrop(pic.BackColor, DragDropEffects.Move)
+            effetRealise = pic.DoDragDrop(pic.Image, DragDropEffects.Move)
             If effetRealise = DragDropEffects.Move Then
                 pic.Image = Nothing
             End If
@@ -103,14 +103,14 @@ Public Class Jeu
         pic.Image = e.Data.GetData(DataFormats.Bitmap)
 
 
-        'Dim i, j As Integer
-        'i = pic.Location.Y / 17
-        'j = pic.Location.X / 17
-        'Me.Controls("pic" + i + "_" + j).AllowDrop = False
-        'Me.Controls("pic" + i + "_" + (j - 1)).AllowDrop = False
-        'Me.Controls("pic" + i + "_" + (j + 1)).AllowDrop = False
-        'Me.Controls("pic" + (i - 1) + "_" + j).AllowDrop = False
-        'Me.Controls("pic" + (i + 1) + "_" + j).AllowDrop = False
+        Dim i, j As Integer
+        i = pic.Location.Y / 17
+        j = pic.Location.X / 17
+        Me.Controls("pic" & i & "_" & j).AllowDrop = False
+        Me.Controls("pic" & i & "_" & (j - 1)).AllowDrop = True
+        Me.Controls("pic" & i & "_" & (j + 1)).AllowDrop = True
+        Me.Controls("pic" & (i - 1) & "_" & j).AllowDrop = True
+        Me.Controls("pic" & (i + 1) & "_" & j).AllowDrop = True
 
     End Sub
 
