@@ -103,14 +103,14 @@ Public Class Jeu
         pic.Image = e.Data.GetData(DataFormats.Bitmap)
 
 
-        Dim i, j As Integer
-        i = pic.Location.Y / 17
-        j = pic.Location.X / 17
-        Me.Controls("pic" + i + "_" + j).AllowDrop = False
-        Me.Controls("pic" + i + "_" + (j - 1)).AllowDrop = False
-        Me.Controls("pic" + i + "_" + (j + 1)).AllowDrop = False
-        Me.Controls("pic" + (i - 1) + "_" + j).AllowDrop = False
-        Me.Controls("pic" + (i + 1) + "_" + j).AllowDrop = False
+        'Dim i, j As Integer
+        'i = pic.Location.Y / 17
+        'j = pic.Location.X / 17
+        'Me.Controls("pic" + i + "_" + j).AllowDrop = False
+        'Me.Controls("pic" + i + "_" + (j - 1)).AllowDrop = False
+        'Me.Controls("pic" + i + "_" + (j + 1)).AllowDrop = False
+        'Me.Controls("pic" + (i - 1) + "_" + j).AllowDrop = False
+        'Me.Controls("pic" + (i + 1) + "_" + j).AllowDrop = False
 
     End Sub
 
