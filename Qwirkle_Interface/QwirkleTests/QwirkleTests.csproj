@@ -52,7 +52,7 @@
     <Compile Include="JoueurTest.cs" />
     <Compile Include="PiocheTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TuileTest.cs" />
+    <Compile Include="TuileIDTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

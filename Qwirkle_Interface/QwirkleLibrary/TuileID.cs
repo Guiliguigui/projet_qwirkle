@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QwirkleLibrary
 {
-    class TuileID
+    public class TuileID
     {
-        public string TuileNom(int FormeID, int CouleurID)
+        public static string TuileNom(int FormeID, int CouleurID)
         {
             string Forme, Couleur;
             switch(FormeID)
@@ -64,7 +64,7 @@ namespace QwirkleLibrary
             return string.Format("{0}{1}", Forme, Couleur);
         }
 
-        public int TuileForme(string tuile)
+        public static int TuileForme(string tuile)
         {
             int i=1;
             int FormeID;
@@ -109,7 +109,7 @@ namespace QwirkleLibrary
             return FormeID;
         }
 
-        public int TuileCouleur(string tuile)
+        public static int TuileCouleur(string tuile)
         {
             int i = 1;
             int CouleurID;
