@@ -44,7 +44,7 @@
     <Compile Include="Joueur.cs" />
     <Compile Include="Pioche.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tuile.cs" />
+    <Compile Include="TuileID.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
