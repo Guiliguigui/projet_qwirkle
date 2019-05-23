@@ -17,11 +17,14 @@ Public Class Page_accueil
 
     Private Sub commencer_Click(sender As Object, e As EventArgs) Handles commencer.Click
         If (RadioButton1.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "") Then
-            Jeu.ShowDialog()
+            Me.Hide()
+            Jeu.Show()
         ElseIf (RadioButton2.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "" And TextBoxJ3.Text IsNot "") Then
-            Jeu.ShowDialog()
+            Me.Hide()
+            Jeu.Show()
         ElseIf (RadioButton3.Checked And TextBoxJ1.Text IsNot "" And TextBoxJ2.Text IsNot "" And TextBoxJ3.Text IsNot "" And TextBoxJ4.Text IsNot "") Then
-            Jeu.ShowDialog()
+            Me.Hide()
+            Jeu.Show()
         Else
             MsgBox("Veuillez entrez des noms de joueurs !")
         End If

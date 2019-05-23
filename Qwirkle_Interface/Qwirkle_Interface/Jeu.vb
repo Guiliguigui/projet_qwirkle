@@ -183,6 +183,7 @@ Public Class Jeu
         response = MessageBox.Show("Voulez vous vraiment retourner au menu ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)
         If response = vbYes Then
             Me.Close()
+            Page_accueil.Show()
         End If
     End Sub
 End Class
