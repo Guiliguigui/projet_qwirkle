@@ -8,6 +8,62 @@ namespace QwirkleLibrary
 {
     class TuileID
     {
+        public string TuileNom(int FormeID, int CouleurID)
+        {
+            string Forme, Couleur;
+            switch(FormeID)
+            {
+                case 1:
+                    Forme = "Trefle";
+                    break;
+                case 2:
+                    Forme = "Etoile";
+                    break;
+                case 3:
+                    Forme = "Carre";
+                    break;
+                case 4:
+                    Forme = "Losange";
+                    break;
+                case 5:
+                    Forme = "Croix";
+                    break;
+                case 6:
+                    Forme = "Rond";
+                    break;
+                default:
+                    Forme = "";
+                    break;
+            }
+
+            switch(CouleurID)
+            {
+                case 1:
+                    Couleur = "Violet";
+                    break;
+                case 2:
+                    Couleur = "Bleu";
+                    break;
+                case 3:
+                    Couleur = "Vert";
+                    break;
+                case 4:
+                    Couleur = "Jaune";
+                    break;
+                case 5:
+                    Couleur = "Orange";
+                    break;
+                case 6:
+                    Couleur = "Rouge";
+                    break;
+                default:
+                    Couleur = "";
+                    break;
+            }
+
+            return string.Format("{0}{1}", Forme, Couleur);
+        }
+
         public int TuileForme(string tuile)
         {
             int i=1;
@@ -72,22 +128,22 @@ namespace QwirkleLibrary
 
             switch (Couleur)
             {
-                case "Trefle":
+                case "Violet":
                     CouleurID = 1;
                     break;
-                case "Etoile":
+                case "Bleu":
                     CouleurID = 2;
                     break;
-                case "Carré":
+                case "Vert":
                     CouleurID = 3;
                     break;
-                case "Losange":
+                case "Jaune":
                     CouleurID = 4;
                     break;
-                case "Croix":
+                case "Orange":
                     CouleurID = 5;
                     break;
-                case "Rond":
+                case "Rouge":
                     CouleurID = 6;
                     break;
                 default:
