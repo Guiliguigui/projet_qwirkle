@@ -13,4 +13,9 @@
         Jeu.Close()
         Me.Close()
     End Sub
+
+    Private Sub score_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Page_accueil.Close()
+        Jeu.Close()
+    End Sub
 End Class
