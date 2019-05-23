@@ -26,8 +26,8 @@ Partial Class score
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btn_np = New System.Windows.Forms.Button()
+        Me.btn_quit = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -70,25 +70,25 @@ Partial Class score
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Fin de la partie"
         '
-        'Button1
+        'btn_np
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(119, 234)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(124, 55)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Nouvelle Partie"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_np.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_np.Location = New System.Drawing.Point(119, 234)
+        Me.btn_np.Name = "btn_np"
+        Me.btn_np.Size = New System.Drawing.Size(124, 55)
+        Me.btn_np.TabIndex = 4
+        Me.btn_np.Text = "Nouvelle Partie"
+        Me.btn_np.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btn_quit
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(310, 234)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(124, 55)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Quitter le jeu"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btn_quit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_quit.Location = New System.Drawing.Point(310, 234)
+        Me.btn_quit.Name = "btn_quit"
+        Me.btn_quit.Size = New System.Drawing.Size(124, 55)
+        Me.btn_quit.TabIndex = 5
+        Me.btn_quit.Text = "Quitter le jeu"
+        Me.btn_quit.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -108,8 +108,8 @@ Partial Class score
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(563, 336)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_quit)
+        Me.Controls.Add(Me.btn_np)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -126,7 +126,7 @@ Partial Class score
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btn_np As Button
+    Friend WithEvents btn_quit As Button
     Friend WithEvents PictureBox1 As PictureBox
 End Class
