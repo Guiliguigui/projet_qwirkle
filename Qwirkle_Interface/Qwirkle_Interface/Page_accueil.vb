@@ -1,4 +1,5 @@
 ﻿Imports QwirkleLibrary
+
 Public Class Page_accueil
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         Panelj4.Enabled = False
@@ -28,6 +29,8 @@ Public Class Page_accueil
         Else
             MsgBox("Veuillez entrez des noms de joueurs !")
         End If
+
+
 
     End Sub
 End Class
