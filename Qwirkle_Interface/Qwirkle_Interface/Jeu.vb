@@ -24,6 +24,11 @@ Public Class Jeu
         Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
+        Dim taillePic, origineX, origineY As Integer
+        taillePic = 17
+        origineX = 17
+        origineY = 17
+
         For i As Byte = 1 To 6
             AddHandler Me.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
         Next
@@ -33,22 +38,19 @@ Public Class Jeu
         For i As Byte = 1 To 30
             For j As Byte = 1 To 30
 
-                If (i < 10) Then
-                    If (j < 10) Then
+                Dim newpic As New PictureBox
 
-                        Dim newpic As New PictureBox
+                newpic.Name = "pic" & i & "_" & j
 
-                        newpic.Name = "pic0" & i & "_0" & j
-
-                        newpic.Size = New Size(15, 15)
+                newpic.Size = New Size(taillePic, taillePic)
                         newpic.BorderStyle = BorderStyle.FixedSingle
 
                         If i = 1 AndAlso j = 1 Then
-                            newpic.Location = New Point(15, 15)
+                            newpic.Location = New Point(origineX, origineY)
                         Else
                             If j = 1 Then
 
-                                newpic.Location = New Point(15, Memorypic.Height + Memorypic.Location.Y)
+                                newpic.Location = New Point(taillePic, Memorypic.Height + Memorypic.Location.Y)
                             Else
 
                                 newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
@@ -63,72 +65,6 @@ Public Class Jeu
                         Me.Controls.Add(newpic)
                         Memorypic = newpic
 
-                    Else
-                        Dim newpic As New PictureBox
-
-
-                        newpic.Name = "pic0" & i & "_" & j
-
-                        newpic.Size = New Size(15, 15)
-                        newpic.BorderStyle = BorderStyle.FixedSingle
-
-                        newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
-
-
-                        newpic.AllowDrop = False
-                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
-                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
-
-                        Me.Controls.Add(newpic)
-                        Memorypic = newpic
-                    End If
-
-                Else
-                    If (j < 10) Then
-                        Dim newpic As New PictureBox
-
-                        newpic.Name = "pic" & i & "_0" & j
-
-                        newpic.Size = New Size(15, 15)
-                        newpic.BorderStyle = BorderStyle.FixedSingle
-
-
-                        If j = 1 Then
-
-                            newpic.Location = New Point(15, Memorypic.Height + Memorypic.Location.Y)
-                        Else
-
-                            newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
-                        End If
-
-
-
-                        newpic.AllowDrop = False
-                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
-                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
-
-                        Me.Controls.Add(newpic)
-                        Memorypic = newpic
-
-                    Else
-                        Dim newpic As New PictureBox
-
-                        newpic.Name = "pic" & i & "_" & j
-
-                        newpic.Size = New Size(15, 15)
-                        newpic.BorderStyle = BorderStyle.FixedSingle
-
-                        newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
-
-
-                        newpic.AllowDrop = False
-                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
-                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
-
-                        Me.Controls.Add(newpic)
-                        Memorypic = newpic
-                    End If
-                End If
             Next
         Next
 
@@ -165,7 +101,6 @@ Public Class Jeu
     Private Sub pic_DragDrop(sender As Object, e As DragEventArgs)
         Dim pic As PictureBox = sender
         pic.Image = e.Data.GetData(DataFormats.Bitmap)
-
     End Sub
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
@@ -180,5 +115,9 @@ Public Class Jeu
             Me.Close()
             Page_accueil.Show()
         End If
+    End Sub
+
+    Private Sub Jeu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Page_accueil.Close()
     End Sub
 End Class
