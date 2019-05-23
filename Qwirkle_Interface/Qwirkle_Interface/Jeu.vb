@@ -43,27 +43,27 @@ Public Class Jeu
                 newpic.Name = "pic" & i & "_" & j
 
                 newpic.Size = New Size(taillePic, taillePic)
-                        newpic.BorderStyle = BorderStyle.FixedSingle
+                newpic.BorderStyle = BorderStyle.FixedSingle
 
-                        If i = 1 AndAlso j = 1 Then
-                            newpic.Location = New Point(origineX, origineY)
-                        Else
-                            If j = 1 Then
+                If i = 1 AndAlso j = 1 Then
+                    newpic.Location = New Point(origineX, origineY)
+                Else
+                    If j = 1 Then
 
-                                newpic.Location = New Point(taillePic, Memorypic.Height + Memorypic.Location.Y)
-                            Else
+                        newpic.Location = New Point(taillePic, Memorypic.Height + Memorypic.Location.Y)
+                    Else
 
-                                newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
-                            End If
-                        End If
+                        newpic.Location = New Point(Memorypic.Height + Memorypic.Location.X, Memorypic.Location.Y)
+                    End If
+                End If
 
 
-                        newpic.AllowDrop = False
-                        AddHandler newpic.DragEnter, AddressOf pic_DragEnter
-                        AddHandler newpic.DragDrop, AddressOf pic_DragDrop
+                newpic.AllowDrop = False
+                AddHandler newpic.DragEnter, AddressOf pic_DragEnter
+                AddHandler newpic.DragDrop, AddressOf pic_DragDrop
 
-                        Me.Controls.Add(newpic)
-                        Memorypic = newpic
+                Me.Controls.Add(newpic)
+                Memorypic = newpic
 
             Next
         Next
@@ -101,6 +101,17 @@ Public Class Jeu
     Private Sub pic_DragDrop(sender As Object, e As DragEventArgs)
         Dim pic As PictureBox = sender
         pic.Image = e.Data.GetData(DataFormats.Bitmap)
+
+
+        Dim i, j As Integer
+        i = pic.Location.Y / 17
+        j = pic.Location.X / 17
+        Me.Controls("pic" + i + "_" + j).AllowDrop = False
+        Me.Controls("pic" + i + "_" + (j - 1)).AllowDrop = False
+        Me.Controls("pic" + i + "_" + (j + 1)).AllowDrop = False
+        Me.Controls("pic" + (i - 1) + "_" + j).AllowDrop = False
+        Me.Controls("pic" + (i + 1) + "_" + j).AllowDrop = False
+
     End Sub
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
