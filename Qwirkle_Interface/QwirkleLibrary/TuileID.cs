@@ -149,5 +149,31 @@ namespace QwirkleLibrary
 
             return CouleurID;
         }
+
+        public static bool MemeForme(string tuile1,string tuile2)
+        {
+            if(TuileForme(tuile1) == TuileForme(tuile2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        public static bool MemeCouleur(string tuile1, string tuile2)
+        {
+            if (TuileCouleur(tuile1) == TuileCouleur(tuile2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
