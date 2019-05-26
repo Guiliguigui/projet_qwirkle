@@ -32,7 +32,7 @@ namespace QwirkleLibrary
                     Forme = "Rond";
                     break;
                 default:
-                    Forme = "";
+                    Forme = "Error";
                     break;
             }
 
@@ -57,7 +57,7 @@ namespace QwirkleLibrary
                     Couleur = "Rouge";
                     break;
                 default:
-                    Couleur = "";
+                    Couleur = "Error";
                     break;
             }
 
@@ -78,8 +78,6 @@ namespace QwirkleLibrary
             sepa = tuile[i];
 
             Forme = tuile.Split(sepa)[0];
-
-            tuile.Split(sepa);
 
             switch (Forme)
             {
@@ -120,30 +118,28 @@ namespace QwirkleLibrary
             {
                 i++;
             }
-            sepa = tuile[i-1];
+            sepa = tuile[i];
 
-            Couleur = tuile.Split(sepa)[0];
-
-            tuile.Split(sepa);
+            Couleur = tuile.Split(sepa)[1];
 
             switch (Couleur)
             {
-                case "Violet":
+                case "iolet":
                     CouleurID = 1;
                     break;
-                case "Bleu":
+                case "leu":
                     CouleurID = 2;
                     break;
-                case "Vert":
+                case "ert":
                     CouleurID = 3;
                     break;
-                case "Jaune":
+                case "aune":
                     CouleurID = 4;
                     break;
-                case "Orange":
+                case "range":
                     CouleurID = 5;
                     break;
-                case "Rouge":
+                case "ouge":
                     CouleurID = 6;
                     break;
                 default:
