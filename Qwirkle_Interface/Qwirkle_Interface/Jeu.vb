@@ -1,5 +1,11 @@
 ﻿Imports QwirkleLibrary
 Public Class Jeu
+
+    Dim PremiereTuile As Boolean
+    Dim TourDuJoueur As Integer
+    Dim AncienneTuilles As IList(Of PictureBox)
+
+
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LabelNomJ1.Text = ("Score de " + Joueur1.Get_name() + " :")
         LabelNomJ2.Text = ("Score de " + Joueur2.Get_name() + " :")
@@ -71,6 +77,8 @@ Public Class Jeu
         Me.Controls("pic15_15").AllowDrop = True
         Me.Controls("pic15_15").BackColor = SystemColors.ControlDark
 
+        PremiereTuile = 1
+        TourDuJoueur = 1
 
     End Sub
 
@@ -89,8 +97,118 @@ Public Class Jeu
     End Sub
 
     Private Sub pic_DragEnter(sender As Object, e As DragEventArgs)
+        Dim ok_haut, ok_bas, ok_gauche, ok_droit, ok_tuile As Boolean
+        Dim pic As PictureBox = sender
+        Dim X, Y, i, j As Integer
+        Y = pic.Location.Y
+        X = pic.Location.X
 
-        If e.Data.GetDataPresent(DataFormats.Bitmap) Then
+        'e.Data
+
+        'comment 
+        'récupérer le nom de l'image
+        'tester différent de (=/= !=)
+
+        If (PremiereTuile Or AncienneTuilles.Contains(Me.Controls("pic" & i + 1 & "_" & j)) Or AncienneTuilles.Contains(Me.Controls("pic" & i - 1 & "_" & j)) Or AncienneTuilles.Contains(Me.Controls("pic" & i & "_" & j + 1)) Or AncienneTuilles.Contains(Me.Controls("pic" & i & "_" & j - 1))) Then
+            ok_tuile = True
+            AncienneTuilles.Add(pic)
+        Else
+            ok_tuile = False
+        End If
+
+        'i = Y
+        'While ((i!= 0) & Me.Controls("pic" & i - 1 & "_" & j)!= Empty) 'verif haut
+
+        '    pic.Image.ToString()
+
+        '    If TuileID.MemeForme(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = False
+        '        Else
+        '            ok_haut = True
+        '        End If
+        '    Else
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = True
+        '        Else
+        '            ok_haut = False
+        '        End If
+        '    End If
+
+        '    i = i - 1
+
+        'End While
+
+        'i = Y
+        'While ((i! = 30) & Me.Controls("pic" & i + 1 & "_" & j)!= Empty) 'verif bas
+
+        '    pic.Image.ToString()
+
+        '    If TuileID.MemeForme(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = False
+        '        Else
+        '            ok_haut = True
+        '        End If
+        '    Else
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = True
+        '        Else
+        '            ok_haut = False
+        '        End If
+        '    End If
+
+        '    i = i + 1
+
+        'End While
+
+        'j = Y
+        'While ((j! = 0) & Me.Controls("pic" & i & "_" & j - 1)!= Empty) 'verif gauche
+
+        '    pic.Image.ToString()
+
+        '    If TuileID.MemeForme(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = False
+        '        Else
+        '            ok_haut = True
+        '        End If
+        '    Else
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = True
+        '        Else
+        '            ok_haut = False
+        '        End If
+        '    End If
+
+        '    j = j - 1
+
+        'End While
+
+        'j = Y
+        'While ((j! = 30) & Me.Controls("pic" & i & "_" & j + 1)!= Empty) 'verif droite
+
+        '    pic.Image.ToString()
+
+        '    If TuileID.MemeForme(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = False
+        '        Else
+        '            ok_haut = True
+        '        End If
+        '    Else
+        '        If TuileID.MemeCouleur(pic.Image.ToString, Me.Controls("pic" & i & "_" & j).Image.ToString) Then
+        '            ok_haut = True
+        '        Else
+        '            ok_haut = False
+        '        End If
+        '    End If
+
+        '    j = j + 1
+
+        'End While
+
+        If (e.Data.GetDataPresent(DataFormats.Bitmap) & ok_haut & ok_bas & ok_gauche & ok_droit & ok_tuile) Then
             e.Effect = DragDropEffects.Move
         Else
             e.Effect = DragDropEffects.None
