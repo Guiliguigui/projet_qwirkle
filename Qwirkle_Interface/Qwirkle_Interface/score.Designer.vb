@@ -78,7 +78,7 @@ Partial Class score
         '
         Me.btn_np.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_np.Location = New System.Drawing.Point(159, 288)
-        Me.btn_np.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_np.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_np.Name = "btn_np"
         Me.btn_np.Size = New System.Drawing.Size(165, 68)
         Me.btn_np.TabIndex = 4
@@ -89,7 +89,7 @@ Partial Class score
         '
         Me.btn_quit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_quit.Location = New System.Drawing.Point(413, 288)
-        Me.btn_quit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_quit.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_quit.Name = "btn_quit"
         Me.btn_quit.Size = New System.Drawing.Size(165, 68)
         Me.btn_quit.TabIndex = 5
@@ -101,7 +101,7 @@ Partial Class score
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox1.Image = Global.Qwirkle_Interface.My.Resources.Resources.istockphoto_528444390_612x612
         Me.PictureBox1.Location = New System.Drawing.Point(123, 130)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(500, 150)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -121,7 +121,7 @@ Partial Class score
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "score"
         Me.Text = "Scores"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

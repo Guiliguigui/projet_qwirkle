@@ -257,11 +257,10 @@ Public Class Jeu
         response = MessageBox.Show("Voulez vous vraiment retourner au menu ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)
         If response = vbYes Then
             Me.Close()
-            Page_accueil.Show()
         End If
     End Sub
 
-    Private Sub Jeu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Page_accueil.Close()
+    Private Sub Jeu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Page_accueil.Show()
     End Sub
 End Class
