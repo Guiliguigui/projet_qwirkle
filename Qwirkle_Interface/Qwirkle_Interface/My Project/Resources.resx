@@ -118,7 +118,115 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="istockphoto-528444390-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="CarreBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarreJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarreOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarreRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarreVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarreViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarreViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CroixViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CroixViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EtoileViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EtoileViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosangeViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LosangeViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="podium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\istockphoto-528444390-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RondViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RondViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleBleu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleBleu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleJaune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleOrange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleRouge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleVert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleVert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrefleViolet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrefleViolet.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

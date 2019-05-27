@@ -87,7 +87,7 @@ namespace QwirkleLibrary
                 case "Etoile":
                     FormeID = 2;
                     break;
-                case "Carré":
+                case "Carre":
                     FormeID = 3;
                     break;
                 case "Losange":

@@ -147,5 +147,113 @@
   <ItemGroup>
     <None Include="Resources\istockphoto-528444390-612x612.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarreViolet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CroixViolet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EtoileViolet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LosangeViolet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RondViolet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleBleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleJaune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleOrange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleRouge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleVert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrefleViolet.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

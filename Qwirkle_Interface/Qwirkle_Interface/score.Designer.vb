@@ -99,7 +99,7 @@ Partial Class score
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.PictureBox1.Image = Global.Qwirkle_Interface.My.Resources.Resources.istockphoto_528444390_612x612
+        Me.PictureBox1.Image = Global.Qwirkle_Interface.My.Resources.Resources.podium
         Me.PictureBox1.Location = New System.Drawing.Point(123, 130)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"

@@ -4,7 +4,7 @@ Public Class Jeu
 
     Dim PremiereTuile As Boolean
     Dim TourDuJoueur As Integer
-    Dim AncienneTuilles As New List(Of String)
+    Dim AncienneCases As New List(Of PictureBox)
 
 
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -80,6 +80,23 @@ Public Class Jeu
         PremiereTuile = 1
         TourDuJoueur = 1
 
+
+
+        picMain1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
+        picMain1.Image.Tag = "TrefleVert"
+
+        picMain2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
+        picMain2.Image.Tag = "CarreRouge"
+
+        picMain3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
+        picMain3.Image.Tag = "CarreBleu"
+
+        picMain3.Image = My.Resources.ResourceManager.GetObject("CarreVert")
+        picMain3.Image.Tag = "CarreVert"
+
+        picMain4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
+        picMain4.Image.Tag = "RondRouge"
+
     End Sub
 
     Private Sub pic_MouseMove(sender As Object, e As MouseEventArgs)
@@ -107,7 +124,7 @@ Public Class Jeu
         Y = pic.Location.Y / taillePic
         X = pic.Location.X / taillePic
 
-
+        'pic.Image = e.Data.GetData(DataFormats.Bitmap).Tag
 
         'comment 
         'récupérer le nom de l'image
@@ -115,30 +132,38 @@ Public Class Jeu
         If (PremiereTuile) Then
             ok_tuile = True
             PremiereTuile = False
-            AncienneTuilles.Add(pic.Name)
+            AncienneCases.Add(pic)
         Else
-
             i = Y
             j = X
-            If (AncienneTuilles.Contains("pic" & (i + 1) & "_" & j) Or AncienneTuilles.Contains("pic" & (i - 1) & "_" & j) Or AncienneTuilles.Contains("pic" & i & "_" & (j + 1)) Or AncienneTuilles.Contains("pic" & i & "_" & (j - 1))) Then
+
+            Dim VerifAxe As Integer = 0
+            For Each anciennetuile In AncienneCases
+                If (anciennetuile.Location.X = pic.Location.X Or anciennetuile.Location.Y = pic.Location.Y) Then
+                    VerifAxe = VerifAxe + 1
+                End If
+            Next
+
+            If (VerifAxe = AncienneCases.Count) Then
                 ok_tuile = True
-                AncienneTuilles.Add(pic.Name)
+                AncienneCases.Add(pic)
             Else
                 ok_tuile = False
             End If
+
 
             i = Y - 1
             Dim pichaut As PictureBox = Me.Controls("pic" & i & "_" & j)
             While ((i <> 0) And pichaut.Image IsNot Nothing) 'verif haut
 
-                If TuileID.MemeForme(e.Data.GetData(Name), pichaut.Image.ToString) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), pichaut.Image.ToString) Then
+                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
                         ok_haut = False
                     Else
                         ok_haut = True
                     End If
                 Else
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), pichaut.Image.ToString) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
                         ok_haut = True
                     Else
                         ok_haut = False
@@ -154,14 +179,14 @@ Public Class Jeu
             Dim picbas As PictureBox = Me.Controls("pic" & i & "_" & j)
             While ((i <> 0) And picbas IsNot Nothing) 'verif bas
 
-                If TuileID.MemeForme(e.Data.GetData(Name), picbas.Image.ToString) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picbas.Image.ToString) Then
+                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
                         ok_bas = False
                     Else
                         ok_bas = True
                     End If
                 Else
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picbas.Image.ToString) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
                         ok_bas = True
                     Else
                         ok_bas = False
@@ -177,14 +202,14 @@ Public Class Jeu
             Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & j)
             While ((j <> 0) And picgauche IsNot Nothing) 'verif gauche
 
-                If TuileID.MemeForme(e.Data.GetData(Name), picgauche.Image.ToString) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picgauche.Image.ToString) Then
+                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
                         ok_gauche = False
                     Else
                         ok_gauche = True
                     End If
                 Else
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picgauche.Image.ToString) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
                         ok_gauche = True
                     Else
                         ok_gauche = False
@@ -200,24 +225,24 @@ Public Class Jeu
             Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & j)
             While ((j <> 0) And picdroite IsNot Nothing) 'verif droite
 
-                If TuileID.MemeForme(e.Data.GetData(Name), picdroite.Image.ToString) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picdroite.Image.ToString) Then
+                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
                         ok_droite = False
                     Else
                         ok_droite = True
                     End If
                 Else
-                    If TuileID.MemeCouleur(e.Data.GetData(Name), picdroite.Image.ToString) Then
+                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
                         ok_droite = True
                     Else
                         ok_droite = False
+                        End If
                     End If
-                End If
 
-                j = j + 1
-                picdroite = Me.Controls("pic" & i & "_" & j)
+                    j = j + 1
+                    picdroite = Me.Controls("pic" & i & "_" & j)
 
-            End While
+                End While
 
         End If
 
@@ -237,7 +262,7 @@ Public Class Jeu
 
         Dim i, j As Integer
         i = pic.Location.Y / taillePic
-        j = pic.Location.X / taillePic
+        j = pic.Location.X / taillePic          'attention il faut empécher une case pleine d'être allowdrop true
         Me.Controls("pic" & i & "_" & j).AllowDrop = False
         Me.Controls("pic" & i & "_" & (j - 1)).AllowDrop = True
         Me.Controls("pic" & i & "_" & (j + 1)).AllowDrop = True
@@ -248,9 +273,8 @@ Public Class Jeu
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
         PremiereTuile = True
-        AncienneTuilles.Clear()
+        AncienneCases.Clear()
     End Sub
-
 
     Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
         Dim response
