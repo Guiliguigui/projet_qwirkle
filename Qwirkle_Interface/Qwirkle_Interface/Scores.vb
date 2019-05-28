@@ -1,4 +1,4 @@
-﻿Public Class score
+﻿Public Class Scores
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_np.Click
         Dim response
         response = MessageBox.Show("Voulez vous vraiment retourner au menu ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)

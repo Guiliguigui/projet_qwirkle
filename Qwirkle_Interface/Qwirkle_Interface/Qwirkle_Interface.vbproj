@@ -102,10 +102,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="score.Designer.vb">
-      <DependentUpon>score.vb</DependentUpon>
+    <Compile Include="Scores.Designer.vb">
+      <DependentUpon>Scores.vb</DependentUpon>
     </Compile>
-    <Compile Include="score.vb">
+    <Compile Include="Scores.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -122,8 +122,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="score.resx">
-      <DependentUpon>score.vb</DependentUpon>
+    <EmbeddedResource Include="Scores.resx">
+      <DependentUpon>Scores.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ Public Class Jeu
     Dim AncienneCases As New List(Of PictureBox)
 
 
+
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LabelNomJ1.Text = ("Score de " + Joueur1.Get_name() + " :")
         LabelNomJ2.Text = ("Score de " + Joueur2.Get_name() + " :")
@@ -69,7 +70,7 @@ Public Class Jeu
                 End If
 
 
-                newpic.AllowDrop = False
+                newpic.AllowDrop = True
                 AddHandler newpic.DragEnter, AddressOf pic_DragEnter
                 AddHandler newpic.DragDrop, AddressOf pic_DragDrop
 
@@ -97,11 +98,37 @@ Public Class Jeu
         picMain3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
         picMain3.Image.Tag = "CarreBleu"
 
-        picMain3.Image = My.Resources.ResourceManager.GetObject("CarreVert")
-        picMain3.Image.Tag = "CarreVert"
-
         picMain4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
         picMain4.Image.Tag = "RondRouge"
+
+        picMain5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
+        picMain5.Image.Tag = "EtoileViolet"
+
+        picMain6.Image = My.Resources.ResourceManager.GetObject("CroixOrange")
+        picMain6.Image.Tag = "CroixOrange"
+
+        Dim pictest1, pictest2, pictest3, pictest4, pictest5 As PictureBox
+
+        pictest1 = Me.Controls("pic16_20")
+        pictest2 = Me.Controls("pic17_20")
+        pictest3 = Me.Controls("pic18_20")
+        pictest4 = Me.Controls("pic16_21")
+        pictest5 = Me.Controls("pic16_22")
+
+        pictest1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
+        pictest1.Image.Tag = "TrefleVert"
+
+        pictest2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
+        pictest2.Image.Tag = "CarreRouge"
+
+        pictest3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
+        pictest3.Image.Tag = "CarreBleu"
+
+        pictest4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
+        pictest4.Image.Tag = "RondRouge"
+
+        pictest5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
+        pictest5.Image.Tag = "EtoileViolet"
 
     End Sub
 
@@ -317,27 +344,96 @@ Public Class Jeu
 
     'getion du bouton swap
 
+
+
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
+        Dim scorehaut, scorebas, scorevertical, scoregauche, scoredroite, scorehorizontal, scoretour As Integer
+        scorebas = 0
+        scoredroite = 0
+        scoregauche = 0
+        scorehaut = 0
+        scorehorizontal = 0
+        scorevertical = 0
+        scoretour = 0
 
         For Each Pic In AncienneCases 'comptage des points
-            Dim i As Integer = Pic.Location.Y / taillePic
-            Dim j As Integer = Pic.Location.X / taillePic
+            Dim Y As Integer = Pic.Location.Y / taillePic
+            Dim X As Integer = Pic.Location.X / taillePic
+            Dim i, j As Integer
 
-            Dim scorehaut, scorebas, scorevertical, scoregauche, scoredroite, scorehorizontal, scoretotal As Integer
-
-
-            Dim pichaut As PictureBox = Me.Controls("pic" & (i - 1) & "_" & j)
-            While (i <> 0 And )
-
+            i = Y - 1
+            j = X
+            Dim pichaut As PictureBox = Me.Controls("pic" & i & "_" & j)
+            While (i <> 0 And Not AncienneCases.Contains(pichaut) And pichaut.Image IsNot Nothing)
+                scorehaut = scorehaut + 1
+                i = i - 1
+                pichaut = Me.Controls("pic" & i & "_" & j)
             End While
 
-            'score du joueur via objet
+            i = Y + 1
+            Dim picbas As PictureBox = Me.Controls("pic" & i & "_" & j)
+            While (i <> 30 And Not AncienneCases.Contains(picbas) And picbas.Image IsNot Nothing)
+                scorebas = scorebas + 1
+                i = i + 1
+                pichaut = Me.Controls("pic" & i & "_" & j)
+            End While
+
+
+            scorevertical = scorehaut + scorebas + 1
+            If scorevertical = 1 Then
+                scorevertical = 0
+            End If
+
+            If scorevertical = 5 Then
+                scorevertical = 12
+            End If
+
+            i = Y
+            j = X - 1
+            Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & j)
+            While (j <> 0 And Not AncienneCases.Contains(picgauche) And picgauche.Image IsNot Nothing)
+                scoregauche = scoregauche + 1
+                j = j - 1
+                picgauche = Me.Controls("pic" & i & "_" & j)
+            End While
+
+            j = X + 1
+            Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & j)
+            While (j <> 30 And Not AncienneCases.Contains(picdroite) And picdroite.Image IsNot Nothing)
+                scoredroite = scoredroite + 1
+                j = j + 1
+                picdroite = Me.Controls("pic" & i & "_" & j)
+            End While
+
+            scorehorizontal = scoregauche + scoredroite + 1
+            If scorevertical = 1 Then
+                scorevertical = 0
+            End If
+
+            If scorehorizontal = 5 Then
+                scorehorizontal = 12
+            End If
+
+
+            scoretour = scoretour + scorevertical + scorehorizontal
+
         Next
+
+        LabelScoreJ1.Text = scoretour
+
+
         AncienneCases.Clear()
 
+
+
+        'score du joueur via objet
+
         'gestion fin de partie et points bonus
+
         'piochage des tuiles
+
         'tour du joueur suivant
+
         'affichage main joueur suivant
 
     End Sub
