@@ -36,7 +36,10 @@ Public Class Jeu
         origineY = 17
 
         For i As Byte = 1 To 6
-            AddHandler Me.Controls("picMain" & i).MouseMove, AddressOf pic_MouseMove
+            Dim picmain As PictureBox = Me.Controls("picMain" & i)
+            picmain.SizeMode = PictureBoxSizeMode.StretchImage
+            picmain.BorderStyle = BorderStyle.FixedSingle
+            AddHandler picmain.MouseMove, AddressOf pic_MouseMove
         Next
 
 
@@ -50,6 +53,8 @@ Public Class Jeu
 
                 newpic.Size = New Size(taillePic, taillePic)
                 newpic.BorderStyle = BorderStyle.FixedSingle
+                newpic.SizeMode = PictureBoxSizeMode.StretchImage
+
 
                 If i = 1 AndAlso j = 1 Then
                     newpic.Location = New Point(origineX, origineY)
@@ -80,7 +85,8 @@ Public Class Jeu
         PremiereTuile = 1
         TourDuJoueur = 1
 
-
+        'gestion pioche et mains des joueurs
+        'affichage main joueur1
 
         picMain1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
         picMain1.Image.Tag = "TrefleVert"
@@ -115,10 +121,10 @@ Public Class Jeu
 
     Private Sub pic_DragEnter(sender As Object, e As DragEventArgs)
         Dim ok_haut, ok_bas, ok_gauche, ok_droite, ok_tuile As Boolean
-        ok_bas = True
-        ok_droite = True
-        ok_gauche = True
-        ok_haut = True
+        'ok_bas = True
+        'ok_droite = True
+        'ok_gauche = True
+        'ok_haut = True
         Dim pic As PictureBox = sender
         Dim X, Y, i, j As Integer
         Y = pic.Location.Y / taillePic
@@ -131,118 +137,141 @@ Public Class Jeu
 
         If (PremiereTuile) Then
             ok_tuile = True
-            PremiereTuile = False
-            AncienneCases.Add(pic)
-        Else
-            i = Y
-            j = X
+            'PremiereTuile = False
+            ok_bas = True
+            ok_droite = True
+            ok_gauche = True
+            ok_haut = True
 
-            Dim VerifAxe As Integer = 0
-            For Each anciennetuile In AncienneCases
-                If (anciennetuile.Location.X = pic.Location.X Or anciennetuile.Location.Y = pic.Location.Y) Then
-                    VerifAxe = VerifAxe + 1
-                End If
-            Next
+            'Else
+            '    i = Y
+            '    j = X
 
-            If (VerifAxe = AncienneCases.Count) Then
-                ok_tuile = True
-                AncienneCases.Add(pic)
-            Else
-                ok_tuile = False
-            End If
+            '    Dim VerifAxe As Integer = 0
+            '    For Each anciennetuile In AncienneCases
+            '        If (anciennetuile.Location.X = pic.Location.X Or anciennetuile.Location.Y = pic.Location.Y) Then
+            '            VerifAxe = VerifAxe + 1
+            '        End If
+            '    Next
+
+            '    If (VerifAxe = AncienneCases.Count) Then
+            '        ok_tuile = True
+
+            '    Else
+            '        ok_tuile = False
+            '    End If
+
+            '    i = Y - 1
+            '    Dim pichaut As PictureBox = Me.Controls("pic" & i & "_" & j)
+            '    Dim compteurhaut, compteur_valide_forme_haut, compteur_valide_couleur_haut As Integer
+            '    compteurhaut = 0
+            '    compteur_valide_forme_haut = 0
+            '    compteur_valide_couleur_haut = 0
 
 
-            i = Y - 1
-            Dim pichaut As PictureBox = Me.Controls("pic" & i & "_" & j)
-            While ((i <> 0) And pichaut.Image IsNot Nothing) 'verif haut
+            '    While ((i <> 0) And pichaut.Image IsNot Nothing) 'verif haut
 
-                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
-                        ok_haut = False
-                    Else
-                        ok_haut = True
-                    End If
-                Else
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
-                        ok_haut = True
-                    Else
-                        ok_haut = False
-                    End If
-                End If
+            '        If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
+            '            compteur_valide_forme_haut = compteur_valide_forme_haut + 1
+            '        End If
 
-                i = i - 1
-                pichaut = Me.Controls("pic" & i & "_" & j)
+            '        If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, pichaut.Image.Tag) Then
+            '            compteur_valide_couleur_haut = compteur_valide_couleur_haut + 1
+            '        End If
 
-            End While
+            '        compteurhaut = compteurhaut + 1
+            '        i = i - 1
+            '        pichaut = Me.Controls("pic" & i & "_" & j)
 
-            i = Y + 1
-            Dim picbas As PictureBox = Me.Controls("pic" & i & "_" & j)
-            While ((i <> 0) And picbas IsNot Nothing) 'verif bas
+            '    End While
 
-                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
-                        ok_bas = False
-                    Else
-                        ok_bas = True
-                    End If
-                Else
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
-                        ok_bas = True
-                    Else
-                        ok_bas = False
-                    End If
-                End If
+            '    If (compteur_valide_couleur_haut = compteurhaut Or compteur_valide_forme_haut = compteurhaut) Then
+            '        ok_haut = True
+            '    End If
 
-                i = i - 1
-                picbas = Me.Controls("pic" & i & "_" & j)
+            '    i = Y + 1
+            '    Dim picbas As PictureBox = Me.Controls("pic" & i & "_" & j)
 
-            End While
+            '    If picbas.Image Is Nothing Then
+            '        ok_bas = True
+            '    End If
 
-            j = X - 1
-            Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & j)
-            While ((j <> 0) And picgauche IsNot Nothing) 'verif gauche
+            '    While ((i <> 0) And picbas.Image IsNot Nothing) 'verif bas
 
-                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
-                        ok_gauche = False
-                    Else
-                        ok_gauche = True
-                    End If
-                Else
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
-                        ok_gauche = True
-                    Else
-                        ok_gauche = False
-                    End If
-                End If
+            '        If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
+            '                ok_bas = False
+            '            Else
+            '                ok_bas = True
+            '            End If
+            '        Else
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picbas.Image.Tag) Then
+            '                ok_bas = True
+            '            Else
+            '                ok_bas = False
+            '            End If
+            '        End If
 
-                j = j - 1
-                picgauche = Me.Controls("pic" & i & "_" & j)
+            '        i = i - 1
+            '        picbas = Me.Controls("pic" & i & "_" & j)
 
-            End While
+            '    End While
 
-            j = X + 1
-            Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & j)
-            While ((j <> 0) And picdroite IsNot Nothing) 'verif droite
+            '    j = X - 1
+            '    Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & j)
 
-                If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
-                        ok_droite = False
-                    Else
-                        ok_droite = True
-                    End If
-                Else
-                    If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
-                        ok_droite = True
-                    Else
-                        ok_droite = False
-                        End If
-                    End If
+            '    If picgauche.Image Is Nothing Then
+            '        ok_gauche = True
+            '    End If
 
-                    j = j + 1
-                    picdroite = Me.Controls("pic" & i & "_" & j)
+            '    While ((j <> 0) And picgauche.Image IsNot Nothing) 'verif gauche
 
-                End While
+            '        If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
+            '                ok_gauche = False
+            '            Else
+            '                ok_gauche = True
+            '            End If
+            '        Else
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picgauche.Image.Tag) Then
+            '                ok_gauche = True
+            '            Else
+            '                ok_gauche = False
+            '            End If
+            '        End If
+
+            '        j = j - 1
+            '        picgauche = Me.Controls("pic" & i & "_" & j)
+
+            '    End While
+
+            '    j = X + 1
+            '    Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & j)
+
+            '    If picdroite.Image Is Nothing Then
+            '        ok_droite = True
+            '    End If
+
+            '    While ((j <> 0) And picdroite.Image IsNot Nothing) 'verif droite
+
+            '        If TuileID.MemeForme(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
+            '                ok_droite = False
+            '            Else
+            '                ok_droite = True
+            '            End If
+            '        Else
+            '            If TuileID.MemeCouleur(e.Data.GetData(DataFormats.Bitmap).Tag, picdroite.Image.Tag) Then
+            '                ok_droite = True
+            '            Else
+            '                ok_droite = False
+            '            End If
+            '        End If
+
+            '        j = j + 1
+            '        picdroite = Me.Controls("pic" & i & "_" & j)
+
+            '    End While
 
         End If
 
@@ -258,22 +287,59 @@ Public Class Jeu
     Private Sub pic_DragDrop(sender As Object, e As DragEventArgs)
         Dim pic As PictureBox = sender
         pic.Image = e.Data.GetData(DataFormats.Bitmap)
-
+        AncienneCases.Add(pic)
 
         Dim i, j As Integer
         i = pic.Location.Y / taillePic
-        j = pic.Location.X / taillePic          'attention il faut empécher une case pleine d'être allowdrop true
+        j = pic.Location.X / taillePic
+
         Me.Controls("pic" & i & "_" & j).AllowDrop = False
-        Me.Controls("pic" & i & "_" & (j - 1)).AllowDrop = True
-        Me.Controls("pic" & i & "_" & (j + 1)).AllowDrop = True
-        Me.Controls("pic" & (i - 1) & "_" & j).AllowDrop = True
-        Me.Controls("pic" & (i + 1) & "_" & j).AllowDrop = True
+
+        Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & (j - 1))
+        Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & (j + 1))
+        Dim pichaut As PictureBox = Me.Controls("pic" & (i - 1) & "_" & j)
+        Dim picbas As PictureBox = Me.Controls("pic" & (i + 1) & "_" & j)
+
+        If pichaut.Image Is Nothing Then
+            pichaut.AllowDrop = True
+        End If
+        If picbas.Image Is Nothing Then
+            picbas.AllowDrop = True
+        End If
+        If picgauche.Image Is Nothing Then
+            picgauche.AllowDrop = True
+        End If
+        If picdroite.Image Is Nothing Then
+            picdroite.AllowDrop = True
+        End If
 
     End Sub
 
+    'getion du bouton swap
+
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
-        PremiereTuile = True
+
+        For Each Pic In AncienneCases 'comptage des points
+            Dim i As Integer = Pic.Location.Y / taillePic
+            Dim j As Integer = Pic.Location.X / taillePic
+
+            Dim scorehaut, scorebas, scorevertical, scoregauche, scoredroite, scorehorizontal, scoretotal As Integer
+
+
+            Dim pichaut As PictureBox = Me.Controls("pic" & (i - 1) & "_" & j)
+            While (i <> 0 And )
+
+            End While
+
+            'score du joueur via objet
+        Next
         AncienneCases.Clear()
+
+        'gestion fin de partie et points bonus
+        'piochage des tuiles
+        'tour du joueur suivant
+        'affichage main joueur suivant
+
     End Sub
 
     Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
