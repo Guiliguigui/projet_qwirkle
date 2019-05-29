@@ -1,34 +1,48 @@
 ﻿Imports QwirkleLibrary
 Public Class Jeu
     Dim taillePic, origineX, origineY As Integer
-
+    Dim NbJoueurs As Integer = 2
     Dim PremiereTuile As Boolean
-    Dim TourDuJoueur As Integer
+    Dim TourDuJoueur As Integer = 1
     Dim AncienneCases As New List(Of PictureBox)
 
 
 
+
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If (Page_accueil.RadioButton1.Checked) Then
+            NbJoueurs = 2
+        ElseIf (Page_accueil.RadioButton2.Checked) Then
+            NbJoueurs = 3
+        ElseIf (Page_accueil.RadioButton3.Checked) Then
+            NbJoueurs = 4
+        End If
+
         LabelNomJ1.Text = ("Score de " + Joueur1.Get_name() + " :")
         LabelNomJ2.Text = ("Score de " + Joueur2.Get_name() + " :")
         LabelScoreJ1.Text = (Joueur1.Get_points())
         LabelScoreJ2.Text = (Joueur2.Get_points())
-        If (Page_accueil.RadioButton1.Checked) Then
-            PanelJ3.Visible = False
-            PanelJ4.Visible = False
-        ElseIf (Page_accueil.RadioButton2.Checked) Then
-            PanelJ3.Visible = True
-            PanelJ4.Visible = False
-            LabelNomJ3.Text = ("Score de " + Joueur3.Get_name() + " :")
-            LabelScoreJ3.Text = (Joueur3.Get_points())
-        ElseIf (Page_accueil.RadioButton3.Checked) Then
-            PanelJ3.Visible = True
-            PanelJ4.Visible = True
-            LabelNomJ3.Text = ("Score de " + Joueur3.Get_name() + " :")
-            LabelScoreJ3.Text = (Joueur3.Get_points())
-            LabelNomJ4.Text = ("Score de " + Joueur4.Get_name() + " :")
-            LabelScoreJ4.Text = (Joueur4.Get_points())
-        End If
+
+        Select Case (NbJoueurs)
+            Case 2
+                PanelJ3.Visible = False
+                PanelJ4.Visible = False
+            Case 3
+                PanelJ3.Visible = True
+                PanelJ4.Visible = False
+                LabelNomJ3.Text = ("Score de " + Joueur3.Get_name() + " :")
+                LabelScoreJ3.Text = (Joueur3.Get_points())
+            Case 4
+                PanelJ3.Visible = True
+                PanelJ4.Visible = True
+                LabelNomJ3.Text = ("Score de " + Joueur3.Get_name() + " :")
+                LabelScoreJ3.Text = (Joueur3.Get_points())
+                LabelNomJ4.Text = ("Score de " + Joueur4.Get_name() + " :")
+                LabelScoreJ4.Text = (Joueur4.Get_points())
+        End Select
+
+
         Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
@@ -70,7 +84,7 @@ Public Class Jeu
                 End If
 
 
-                newpic.AllowDrop = True
+                newpic.AllowDrop = False
                 AddHandler newpic.DragEnter, AddressOf pic_DragEnter
                 AddHandler newpic.DragDrop, AddressOf pic_DragDrop
 
@@ -80,6 +94,8 @@ Public Class Jeu
             Next
         Next
 
+        swap.AllowDrop = True
+
         Me.Controls("pic15_15").AllowDrop = True
         Me.Controls("pic15_15").BackColor = SystemColors.ControlDark
 
@@ -87,7 +103,7 @@ Public Class Jeu
         TourDuJoueur = 1
 
         'gestion pioche et mains des joueurs
-        'affichage main joueur1
+
 
         picMain1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
         picMain1.Image.Tag = "TrefleVert"
@@ -107,28 +123,33 @@ Public Class Jeu
         picMain6.Image = My.Resources.ResourceManager.GetObject("CroixOrange")
         picMain6.Image.Tag = "CroixOrange"
 
-        Dim pictest1, pictest2, pictest3, pictest4, pictest5 As PictureBox
+        'Dim pictest1, pictest2, pictest3, pictest4, pictest5 As PictureBox
 
-        pictest1 = Me.Controls("pic16_20")
-        pictest2 = Me.Controls("pic17_20")
-        pictest3 = Me.Controls("pic18_20")
-        pictest4 = Me.Controls("pic16_21")
-        pictest5 = Me.Controls("pic16_22")
+        'pictest1 = Me.Controls("pic16_20")
+        'pictest2 = Me.Controls("pic17_20")
+        'pictest3 = Me.Controls("pic18_20")
+        'pictest4 = Me.Controls("pic16_21")
+        'pictest5 = Me.Controls("pic16_22")
 
-        pictest1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
-        pictest1.Image.Tag = "TrefleVert"
+        'pictest1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
+        'pictest1.Image.Tag = "TrefleVert"
 
-        pictest2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
-        pictest2.Image.Tag = "CarreRouge"
+        'pictest2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
+        'pictest2.Image.Tag = "CarreRouge"
 
-        pictest3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
-        pictest3.Image.Tag = "CarreBleu"
+        'pictest3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
+        'pictest3.Image.Tag = "CarreBleu"
 
-        pictest4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
-        pictest4.Image.Tag = "RondRouge"
+        'pictest4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
+        'pictest4.Image.Tag = "RondRouge"
 
-        pictest5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
-        pictest5.Image.Tag = "EtoileViolet"
+        'pictest5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
+        'pictest5.Image.Tag = "EtoileViolet"
+
+
+        JoueurName.Text = Joueur1.Get_name
+
+        'affichage main joueur1
 
     End Sub
 
@@ -343,7 +364,21 @@ Public Class Jeu
     End Sub
 
     'getion du bouton swap
+    Private Sub pic_SwapDragEnter(sender As Object, e As DragEventArgs) Handles swap.DragEnter
+        If e.Data.GetDataPresent(DataFormats.Bitmap) Then
+            e.Effect = DragDropEffects.Move
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
 
+    Private Sub pic_SwapDragDrop(sender As Object, e As DragEventArgs) Handles swap.DragDrop
+        Dim pic As PictureBox = sender
+        pic.Image = Nothing
+
+        'retour tuile pioche
+
+    End Sub
 
 
     Private Sub btnValide_Click(sender As Object, e As EventArgs) Handles btnValide.Click
@@ -384,7 +419,7 @@ Public Class Jeu
                 scorevertical = 0
             End If
 
-            If scorevertical = 5 Then
+            If scorevertical = 6 Then
                 scorevertical = 12
             End If
 
@@ -410,7 +445,7 @@ Public Class Jeu
                 scorevertical = 0
             End If
 
-            If scorehorizontal = 5 Then
+            If scorehorizontal = 6 Then
                 scorehorizontal = 12
             End If
 
@@ -419,20 +454,57 @@ Public Class Jeu
 
         Next
 
-        LabelScoreJ1.Text = scoretour
-
 
         AncienneCases.Clear()
 
-
-
-        'score du joueur via objet
 
         'gestion fin de partie et points bonus
 
         'piochage des tuiles
 
-        'tour du joueur suivant
+        'tour du joueur suivant + score du joueur via objet
+        Select Case (TourDuJoueur)
+            Case 1
+                Joueur1.Set_points(Joueur1.Get_points + scoretour)
+                LabelScoreJ1.Text = Joueur1.Get_points
+                J1PtsLast.Text = scoretour
+                TourDuJoueur = TourDuJoueur + 1
+                JoueurName.Text = Joueur2.Get_name
+            Case 2
+                If (NbJoueurs = 2) Then
+                    TourDuJoueur = 1
+                    JoueurName.Text = Joueur1.Get_name
+                    LabelNumTour.Text = LabelNumTour.Text + 1
+
+                Else
+                    TourDuJoueur = 3
+                    JoueurName.Text = Joueur3.Get_name
+                End If
+                Joueur2.Set_points(Joueur2.Get_points + scoretour)
+                LabelScoreJ2.Text = Joueur2.Get_points
+                J2PtsLast.Text = scoretour
+            Case 3
+                If (NbJoueurs = 3) Then
+                    TourDuJoueur = 1
+                    JoueurName.Text = Joueur1.Get_name
+                    LabelNumTour.Text = LabelNumTour.Text + 1
+
+                Else
+                    TourDuJoueur = 4
+                    JoueurName.Text = Joueur4.Get_name
+                End If
+                Joueur3.Set_points(Joueur3.Get_points + scoretour)
+                LabelScoreJ3.Text = Joueur3.Get_points
+                J3PtsLast.Text = scoretour
+            Case 4
+                TourDuJoueur = 1
+                JoueurName.Text = Joueur1.Get_name
+                LabelNumTour.Text = LabelNumTour.Text + 1
+                Joueur4.Set_points(Joueur4.Get_points + scoretour)
+                LabelScoreJ4.Text = Joueur4.Get_points
+                J4PtsLast.Text = scoretour
+        End Select
+
 
         'affichage main joueur suivant
 

@@ -56,9 +56,9 @@ Partial Class Jeu
         Me.picMain4 = New System.Windows.Forms.PictureBox()
         Me.picMain5 = New System.Windows.Forms.PictureBox()
         Me.picMain6 = New System.Windows.Forms.PictureBox()
-        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.btnRetourMenu = New System.Windows.Forms.Button()
         Me.btnValide = New System.Windows.Forms.Button()
+        Me.swap = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.PanelJ4.SuspendLayout()
         Me.PanelJ3.SuspendLayout()
@@ -71,6 +71,7 @@ Partial Class Jeu
         CType(Me.picMain4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picMain5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picMain6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.swap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -102,9 +103,9 @@ Partial Class Jeu
         Me.J4PtsLast.AutoSize = True
         Me.J4PtsLast.Location = New System.Drawing.Point(153, 37)
         Me.J4PtsLast.Name = "J4PtsLast"
-        Me.J4PtsLast.Size = New System.Drawing.Size(19, 13)
+        Me.J4PtsLast.Size = New System.Drawing.Size(13, 13)
         Me.J4PtsLast.TabIndex = 3
-        Me.J4PtsLast.Text = "...."
+        Me.J4PtsLast.Text = "0"
         '
         'LabelScoreJ4
         '
@@ -150,9 +151,9 @@ Partial Class Jeu
         Me.J3PtsLast.AutoSize = True
         Me.J3PtsLast.Location = New System.Drawing.Point(153, 37)
         Me.J3PtsLast.Name = "J3PtsLast"
-        Me.J3PtsLast.Size = New System.Drawing.Size(19, 13)
+        Me.J3PtsLast.Size = New System.Drawing.Size(13, 13)
         Me.J3PtsLast.TabIndex = 3
-        Me.J3PtsLast.Text = "...."
+        Me.J3PtsLast.Text = "0"
         '
         'LabelScoreJ3
         '
@@ -197,9 +198,9 @@ Partial Class Jeu
         Me.J2PtsLast.AutoSize = True
         Me.J2PtsLast.Location = New System.Drawing.Point(153, 37)
         Me.J2PtsLast.Name = "J2PtsLast"
-        Me.J2PtsLast.Size = New System.Drawing.Size(19, 13)
+        Me.J2PtsLast.Size = New System.Drawing.Size(13, 13)
         Me.J2PtsLast.TabIndex = 3
-        Me.J2PtsLast.Text = "...."
+        Me.J2PtsLast.Text = "0"
         '
         'LabelScoreJ2
         '
@@ -252,9 +253,9 @@ Partial Class Jeu
         Me.LabelNumTour.AutoSize = True
         Me.LabelNumTour.Location = New System.Drawing.Point(60, 43)
         Me.LabelNumTour.Name = "LabelNumTour"
-        Me.LabelNumTour.Size = New System.Drawing.Size(19, 13)
+        Me.LabelNumTour.Size = New System.Drawing.Size(13, 13)
         Me.LabelNumTour.TabIndex = 1
-        Me.LabelNumTour.Text = "...."
+        Me.LabelNumTour.Text = "1"
         '
         'Label18
         '
@@ -281,9 +282,9 @@ Partial Class Jeu
         Me.J1PtsLast.AutoSize = True
         Me.J1PtsLast.Location = New System.Drawing.Point(153, 37)
         Me.J1PtsLast.Name = "J1PtsLast"
-        Me.J1PtsLast.Size = New System.Drawing.Size(19, 13)
+        Me.J1PtsLast.Size = New System.Drawing.Size(13, 13)
         Me.J1PtsLast.TabIndex = 3
-        Me.J1PtsLast.Text = "...."
+        Me.J1PtsLast.Text = "0"
         '
         'LabelScoreJ1
         '
@@ -380,15 +381,6 @@ Partial Class Jeu
         Me.picMain6.TabIndex = 11
         Me.picMain6.TabStop = False
         '
-        'Panel8
-        '
-        Me.Panel8.BackgroundImage = CType(resources.GetObject("Panel8.BackgroundImage"), System.Drawing.Image)
-        Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel8.Location = New System.Drawing.Point(372, 535)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(54, 43)
-        Me.Panel8.TabIndex = 8
-        '
         'btnRetourMenu
         '
         Me.btnRetourMenu.BackgroundImage = CType(resources.GetObject("btnRetourMenu.BackgroundImage"), System.Drawing.Image)
@@ -409,11 +401,22 @@ Partial Class Jeu
         Me.btnValide.TabIndex = 3
         Me.btnValide.UseVisualStyleBackColor = True
         '
+        'swap
+        '
+        Me.swap.BackgroundImage = CType(resources.GetObject("swap.BackgroundImage"), System.Drawing.Image)
+        Me.swap.Location = New System.Drawing.Point(372, 535)
+        Me.swap.Name = "swap"
+        Me.swap.Size = New System.Drawing.Size(54, 43)
+        Me.swap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.swap.TabIndex = 17
+        Me.swap.TabStop = False
+        '
         'Jeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 612)
+        Me.Controls.Add(Me.swap)
         Me.Controls.Add(Me.picMain1)
         Me.Controls.Add(Me.picMain2)
         Me.Controls.Add(Me.picMain3)
@@ -421,7 +424,6 @@ Partial Class Jeu
         Me.Controls.Add(Me.picMain5)
         Me.Controls.Add(Me.picMain6)
         Me.Controls.Add(Me.RestePioche)
-        Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnRetourMenu)
         Me.Controls.Add(Me.btnValide)
@@ -445,6 +447,7 @@ Partial Class Jeu
         CType(Me.picMain4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picMain5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picMain6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.swap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -477,7 +480,6 @@ Partial Class Jeu
     Friend WithEvents btnValide As Button
     Friend WithEvents btnRetourMenu As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel8 As Panel
     Friend WithEvents RestePioche As Label
     Friend WithEvents picMain6 As PictureBox
     Friend WithEvents picMain5 As PictureBox
@@ -485,4 +487,5 @@ Partial Class Jeu
     Friend WithEvents picMain3 As PictureBox
     Friend WithEvents picMain2 As PictureBox
     Friend WithEvents picMain1 As PictureBox
+    Friend WithEvents swap As PictureBox
 End Class
