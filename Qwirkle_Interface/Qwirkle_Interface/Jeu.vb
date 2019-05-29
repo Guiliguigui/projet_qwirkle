@@ -46,6 +46,26 @@ Public Class Jeu
         Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
+        Dim random As New Random
+        Dim FormeNum As Integer
+        Dim CouleurNum As Integer
+        Dim Tuile As String
+        While (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0)
+            Dim i As Integer
+            For i = 1 To 6 Step 1
+                If (("picMain" & i)(DataFormats.Bitmap).ToString Is Nothing) Then
+                    While (LaPioche(CouleurNum)(FormeNum) = 0)
+                        FormeNum = random.Next(1, 6)
+                        CouleurNum = random.Next(1, 6)
+                    End While
+                    LaPioche.Suppr_tuile(CouleurNum, FormeNum)
+                    Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                    ("picMain" & i).image = My.Resources.ResourceManager.GetObject(Tuile)
+                    ("picMain" & i).image.Tag = Tuile
+                End If
+            Next
+        End While
+
         taillePic = 17
         origineX = 17
         origineY = 17
