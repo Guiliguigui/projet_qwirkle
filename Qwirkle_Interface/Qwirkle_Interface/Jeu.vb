@@ -5,11 +5,21 @@ Public Class Jeu
     Dim PremiereTuile As Boolean
     Dim TourDuJoueur As Integer = 1
     Dim AncienneCases As New List(Of PictureBox)
+    Dim ListeJoueur As New List(Of Joueur)
+    Dim Main(6) As String
+    Dim FormeNum As Integer
+    Dim CouleurNum As Integer
+    Dim Tuile As String
+    Dim random As New Random()
+
+    Dim LaPioche = New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
+
 
 
 
 
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
         If (Page_accueil.RadioButton1.Checked) Then
             NbJoueurs = 2
@@ -24,15 +34,21 @@ Public Class Jeu
         LabelScoreJ1.Text = (Joueur1.Get_points())
         LabelScoreJ2.Text = (Joueur2.Get_points())
 
+        ListeJoueur.Add(Joueur1)
+        ListeJoueur.Add(Joueur2)
+
         Select Case (NbJoueurs)
             Case 2
                 PanelJ3.Visible = False
                 PanelJ4.Visible = False
+
             Case 3
                 PanelJ3.Visible = True
                 PanelJ4.Visible = False
                 LabelNomJ3.Text = ("Score de " + Joueur3.Get_name() + " :")
                 LabelScoreJ3.Text = (Joueur3.Get_points())
+                ListeJoueur.Add(Joueur3)
+
             Case 4
                 PanelJ3.Visible = True
                 PanelJ4.Visible = True
@@ -40,43 +56,46 @@ Public Class Jeu
                 LabelScoreJ3.Text = (Joueur3.Get_points())
                 LabelNomJ4.Text = ("Score de " + Joueur4.Get_name() + " :")
                 LabelScoreJ4.Text = (Joueur4.Get_points())
+                ListeJoueur.Add(Joueur4)
+
         End Select
 
 
-        Dim LaPioche As New Pioche(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
-        RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
+        For Each joueur In ListeJoueur 'initialisation des mains des joueurs
 
-        Dim random As New Random
-        Dim FormeNum As Integer
-        Dim CouleurNum As Integer
-        Dim Tuile As String
-        While (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0)
-            Dim i As Integer
-            For i = 1 To 6 Step 1
-                If (("picMain" & i)(DataFormats.Bitmap).ToString Is Nothing) Then
-                    While (LaPioche(CouleurNum)(FormeNum) = 0)
-                        FormeNum = random.Next(1, 6)
-                        CouleurNum = random.Next(1, 6)
-                    End While
-                    LaPioche.Suppr_tuile(CouleurNum, FormeNum)
-                    Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
-                    ("picMain" & i).image = My.Resources.ResourceManager.GetObject(Tuile)
-                    ("picMain" & i).image.Tag = Tuile
-                End If
+            For i As Byte = 1 To 6
+
+                FormeNum = random.Next(1, 7)
+                CouleurNum = random.Next(1, 7)
+                While (LaPioche.Suppr_tuile(CouleurNum - 1, FormeNum - 1) = False)
+                    FormeNum = random.Next(1, 7)
+                    CouleurNum = random.Next(1, 7)
+                End While
+
+                Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                Main(i) = Tuile
+
             Next
-        End While
+            joueur.Set_main(Main)
+        Next
+
+
+        RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
         taillePic = 17
         origineX = 17
         origineY = 17
 
-        For i As Byte = 1 To 6
-            Dim picmain As PictureBox = Me.Controls("picMain" & i)
-            picmain.SizeMode = PictureBoxSizeMode.StretchImage
-            picmain.BorderStyle = BorderStyle.FixedSingle
-            AddHandler picmain.MouseMove, AddressOf pic_MouseMove
-        Next
+        'gestion main du joueur 1 et initialisation des picturebox main
 
+        For i As Integer = 1 To 6
+            Dim picMain As PictureBox = Me.Controls("picMain" & i)
+            picMain.SizeMode = PictureBoxSizeMode.StretchImage
+            picMain.BorderStyle = BorderStyle.FixedSingle
+            AddHandler picMain.MouseMove, AddressOf pic_MouseMove
+            picMain.Image = My.Resources.ResourceManager.GetObject(Joueur1.Get_main()(i))
+            picMain.Image.Tag = Joueur1.Get_main()(i)
+        Next
 
         Dim Memorypic As PictureBox
         For i As Byte = 1 To 30
@@ -119,58 +138,10 @@ Public Class Jeu
         Me.Controls("pic15_15").AllowDrop = True
         Me.Controls("pic15_15").BackColor = SystemColors.ControlDark
 
-        PremiereTuile = 1
+        PremiereTuile = True
         TourDuJoueur = 1
 
-        'gestion pioche et mains des joueurs
-
-
-        picMain1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
-        picMain1.Image.Tag = "TrefleVert"
-
-        picMain2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
-        picMain2.Image.Tag = "CarreRouge"
-
-        picMain3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
-        picMain3.Image.Tag = "CarreBleu"
-
-        picMain4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
-        picMain4.Image.Tag = "RondRouge"
-
-        picMain5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
-        picMain5.Image.Tag = "EtoileViolet"
-
-        picMain6.Image = My.Resources.ResourceManager.GetObject("CroixOrange")
-        picMain6.Image.Tag = "CroixOrange"
-
-        'Dim pictest1, pictest2, pictest3, pictest4, pictest5 As PictureBox
-
-        'pictest1 = Me.Controls("pic16_20")
-        'pictest2 = Me.Controls("pic17_20")
-        'pictest3 = Me.Controls("pic18_20")
-        'pictest4 = Me.Controls("pic16_21")
-        'pictest5 = Me.Controls("pic16_22")
-
-        'pictest1.Image = My.Resources.ResourceManager.GetObject("TrefleVert")
-        'pictest1.Image.Tag = "TrefleVert"
-
-        'pictest2.Image = My.Resources.ResourceManager.GetObject("CarreRouge")
-        'pictest2.Image.Tag = "CarreRouge"
-
-        'pictest3.Image = My.Resources.ResourceManager.GetObject("CarreBleu")
-        'pictest3.Image.Tag = "CarreBleu"
-
-        'pictest4.Image = My.Resources.ResourceManager.GetObject("RondRouge")
-        'pictest4.Image.Tag = "RondRouge"
-
-        'pictest5.Image = My.Resources.ResourceManager.GetObject("EtoileViolet")
-        'pictest5.Image.Tag = "EtoileViolet"
-
-
         JoueurName.Text = Joueur1.Get_name
-
-        'affichage main joueur1
-
     End Sub
 
     Private Sub pic_MouseMove(sender As Object, e As MouseEventArgs)
@@ -189,10 +160,6 @@ Public Class Jeu
 
     Private Sub pic_DragEnter(sender As Object, e As DragEventArgs)
         Dim ok_haut, ok_bas, ok_gauche, ok_droite, ok_tuile As Boolean
-        'ok_bas = True
-        'ok_droite = True
-        'ok_gauche = True
-        'ok_haut = True
         Dim pic As PictureBox = sender
         Dim X, Y, i, j As Integer
         Y = pic.Location.Y / taillePic
@@ -200,8 +167,6 @@ Public Class Jeu
 
         'pic.Image = e.Data.GetData(DataFormats.Bitmap).Tag
 
-        'comment 
-        'récupérer le nom de l'image
 
         If (PremiereTuile) Then
             ok_tuile = True
@@ -211,7 +176,7 @@ Public Class Jeu
             ok_gauche = True
             ok_haut = True
 
-            'Else
+            'Else      'Vérifications de placement, non fonctionnel donc abandonné. Le problème vient du e.Data.GetData(DataFormats.Bitmap).Tag qui ne retourne pas le tag de l'image mais juste "bitmap"
             '    i = Y
             '    j = X
 
@@ -285,6 +250,7 @@ Public Class Jeu
 
             '    End While
 
+            '    i = Y
             '    j = X - 1
             '    Dim picgauche As PictureBox = Me.Controls("pic" & i & "_" & j)
 
@@ -367,18 +333,26 @@ Public Class Jeu
         Dim picdroite As PictureBox = Me.Controls("pic" & i & "_" & (j + 1))
         Dim pichaut As PictureBox = Me.Controls("pic" & (i - 1) & "_" & j)
         Dim picbas As PictureBox = Me.Controls("pic" & (i + 1) & "_" & j)
+        If i <> 0 Then
+            If pichaut.Image Is Nothing Then
+                pichaut.AllowDrop = True
+            End If
+        End If
+        If i <> 30 Then
+            If picbas.Image Is Nothing Then
+                picbas.AllowDrop = True
+            End If
+        End If
 
-        If pichaut.Image Is Nothing Then
-            pichaut.AllowDrop = True
+        If j <> 0 Then
+            If picgauche.Image Is Nothing Then
+                picgauche.AllowDrop = True
+            End If
         End If
-        If picbas.Image Is Nothing Then
-            picbas.AllowDrop = True
-        End If
-        If picgauche.Image Is Nothing Then
-            picgauche.AllowDrop = True
-        End If
-        If picdroite.Image Is Nothing Then
-            picdroite.AllowDrop = True
+        If i <> 30 Then
+            If picdroite.Image Is Nothing Then
+                picdroite.AllowDrop = True
+            End If
         End If
 
     End Sub
@@ -396,7 +370,8 @@ Public Class Jeu
         Dim pic As PictureBox = sender
         pic.Image = Nothing
 
-        'retour tuile pioche
+        'retour tuile pioche             'non fonctionel pour les mêmes raisons que les vérifications de placement
+        'LaPioche.Ajout_tuile(TuileID.TuileCouleur(e.Data.GetData(DataFormats.Bitmap).Tag), TuileID.TuileForme(e.Data.GetData(DataFormats.Bitmap).Tag))
 
     End Sub
 
@@ -420,6 +395,7 @@ Public Class Jeu
             j = X
             Dim pichaut As PictureBox = Me.Controls("pic" & i & "_" & j)
             While (i <> 0 And Not AncienneCases.Contains(pichaut) And pichaut.Image IsNot Nothing)
+
                 scorehaut = scorehaut + 1
                 i = i - 1
                 pichaut = Me.Controls("pic" & i & "_" & j)
@@ -474,15 +450,15 @@ Public Class Jeu
 
         Next
 
+        If AncienneCases.Count = 6 Then
+            scoretour = scoretour + 6
+        End If
 
         AncienneCases.Clear()
 
 
-        'gestion fin de partie et points bonus
 
-        'piochage des tuiles
-
-        'tour du joueur suivant + score du joueur via objet
+        'tour du joueur suivant + score du joueur via objet + piochage des tuiles manquantes + affichage main joueur suivant
         Select Case (TourDuJoueur)
             Case 1
                 Joueur1.Set_points(Joueur1.Get_points + scoretour)
@@ -490,32 +466,116 @@ Public Class Jeu
                 J1PtsLast.Text = scoretour
                 TourDuJoueur = TourDuJoueur + 1
                 JoueurName.Text = Joueur2.Get_name
+                Main = Joueur1.Get_main()
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    If picMain.Image Is Nothing And LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0 Then
+
+                        FormeNum = random.Next(1, 7)
+                        CouleurNum = random.Next(1, 7)
+                        While (LaPioche.Suppr_tuile(CouleurNum - 1, FormeNum - 1) = False)
+                            FormeNum = random.Next(1, 7)
+                            CouleurNum = random.Next(1, 7)
+                        End While
+
+                        Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                        Main(i) = Tuile
+
+                    End If
+                Next
+                Joueur1.Set_main(Main)
+
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    picMain.Image = Nothing
+                    picMain.Image = My.Resources.ResourceManager.GetObject(Joueur2.Get_main()(i))
+                    picMain.Image.Tag = Joueur2.Get_main()(i)
+                Next
             Case 2
                 If (NbJoueurs = 2) Then
                     TourDuJoueur = 1
                     JoueurName.Text = Joueur1.Get_name
                     LabelNumTour.Text = LabelNumTour.Text + 1
 
+                    For i As Integer = 1 To 6
+                        Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                        picMain.Image = My.Resources.ResourceManager.GetObject(Joueur1.Get_main()(i))
+                        picMain.Image.Tag = Joueur1.Get_main()(i)
+                    Next
                 Else
                     TourDuJoueur = 3
                     JoueurName.Text = Joueur3.Get_name
+
+                    For i As Integer = 1 To 6
+                        Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                        picMain.Image = My.Resources.ResourceManager.GetObject(Joueur3.Get_main()(i))
+                        picMain.Image.Tag = Joueur3.Get_main()(i)
+                    Next
                 End If
                 Joueur2.Set_points(Joueur2.Get_points + scoretour)
                 LabelScoreJ2.Text = Joueur2.Get_points
                 J2PtsLast.Text = scoretour
+                Main = Joueur2.Get_main()
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    If picMain.Image Is Nothing And LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0 Then
+
+                        FormeNum = random.Next(1, 7)
+                        CouleurNum = random.Next(1, 7)
+                        While (LaPioche.Suppr_tuile(CouleurNum - 1, FormeNum - 1) = False)
+                            FormeNum = random.Next(1, 7)
+                            CouleurNum = random.Next(1, 7)
+                        End While
+
+                        Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                        Main(i) = Tuile
+
+                    End If
+                Next
+                Joueur2.Set_main(Main)
+
             Case 3
                 If (NbJoueurs = 3) Then
                     TourDuJoueur = 1
                     JoueurName.Text = Joueur1.Get_name
                     LabelNumTour.Text = LabelNumTour.Text + 1
 
+                    For i As Integer = 1 To 6
+                        Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                        picMain.Image = My.Resources.ResourceManager.GetObject(Joueur1.Get_main()(i))
+                        picMain.Image.Tag = Joueur1.Get_main()(i)
+                    Next
                 Else
                     TourDuJoueur = 4
                     JoueurName.Text = Joueur4.Get_name
+
+                    For i As Integer = 1 To 6
+                        Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                        picMain.Image = My.Resources.ResourceManager.GetObject(Joueur4.Get_main()(i))
+                        picMain.Image.Tag = Joueur4.Get_main()(i)
+                    Next
                 End If
                 Joueur3.Set_points(Joueur3.Get_points + scoretour)
                 LabelScoreJ3.Text = Joueur3.Get_points
                 J3PtsLast.Text = scoretour
+                Main = Joueur3.Get_main()
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    If picMain.Image Is Nothing And LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0 Then
+
+                        FormeNum = random.Next(1, 7)
+                        CouleurNum = random.Next(1, 7)
+                        While (LaPioche.Suppr_tuile(CouleurNum - 1, FormeNum - 1) = False)
+                            FormeNum = random.Next(1, 7)
+                            CouleurNum = random.Next(1, 7)
+                        End While
+
+                        Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                        Main(i) = Tuile
+
+                    End If
+                Next
+                Joueur3.Set_main(Main)
             Case 4
                 TourDuJoueur = 1
                 JoueurName.Text = Joueur1.Get_name
@@ -523,22 +583,60 @@ Public Class Jeu
                 Joueur4.Set_points(Joueur4.Get_points + scoretour)
                 LabelScoreJ4.Text = Joueur4.Get_points
                 J4PtsLast.Text = scoretour
+                Main = Joueur4.Get_main()
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    If picMain.Image Is Nothing And LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) <> 0 Then
+
+                        FormeNum = random.Next(1, 7)
+                        CouleurNum = random.Next(1, 7)
+                        While (LaPioche.Suppr_tuile(CouleurNum - 1, FormeNum - 1) = False And LaPioche.Comptage <> 0)
+                            FormeNum = random.Next(1, 7)
+                            CouleurNum = random.Next(1, 7)
+                        End While
+
+                        Tuile = TuileID.TuileNom(FormeNum, CouleurNum)
+                        Main(i) = Tuile
+
+                    End If
+                Next
+                Joueur4.Set_main(Main)
+
+                For i As Integer = 1 To 6
+                    Dim picMain As PictureBox = Me.Controls("picMain" & i)
+                    picMain.Image = My.Resources.ResourceManager.GetObject(Joueur1.Get_main()(i))
+                    picMain.Image.Tag = Joueur1.Get_main()(i)
+                Next
         End Select
+        RestePioche.Text = (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()))
 
-
-        'affichage main joueur suivant
-
+        'gestion fin de partie et points bonus (non implémenté)
+        If (LaPioche.Comptage(LaPioche.Get_TuilesRestantes()) = 0) Then
+            Me.Hide()
+            Scores.Show()
+        End If
     End Sub
+
 
     Private Sub btnRetourMenu_Click(sender As Object, e As EventArgs) Handles btnRetourMenu.Click
         Dim response
         response = MessageBox.Show("Voulez vous vraiment retourner au menu ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)
         If response = vbYes Then
             Me.Close()
+            For Each joueur In ListeJoueur
+                joueur.Set_main(New String() {"vide", "vide", "vide", "vide", "vide", "vide"})
+                joueur.Set_points(0)
+            Next
+            LaPioche.Set_TuilesRestantes(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
         End If
     End Sub
 
     Private Sub Jeu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Page_accueil.Show()
+        For Each joueur In ListeJoueur
+            joueur.Set_main(New String() {"vide", "vide", "vide", "vide", "vide", "vide"})
+            joueur.Set_points(0)
+        Next
+        LaPioche.Set_TuilesRestantes(New Integer(5, 5) {{3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}, {3, 3, 3, 3, 3, 3}})
     End Sub
 End Class

@@ -10,7 +10,7 @@ namespace QwirkleLibrary
     {
         private string name;
         private int points;
-        private int numero; //Ceci à été ajouté pour pouvois gérer les tours de joueurs qui jouent et n'apparait pas dans le diagramme de classe.
+        private int numero;
         private string[] main;
 
         public Joueur(string name, int points, int numero, string[] main)

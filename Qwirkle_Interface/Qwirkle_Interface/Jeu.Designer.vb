@@ -40,6 +40,7 @@ Partial Class Jeu
         Me.Label8 = New System.Windows.Forms.Label()
         Me.LabelNomJ2 = New System.Windows.Forms.Label()
         Me.PanelTourJeu = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.JoueurName = New System.Windows.Forms.Label()
         Me.LabelNumTour = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -231,6 +232,7 @@ Partial Class Jeu
         '
         'PanelTourJeu
         '
+        Me.PanelTourJeu.Controls.Add(Me.Label2)
         Me.PanelTourJeu.Controls.Add(Me.JoueurName)
         Me.PanelTourJeu.Controls.Add(Me.LabelNumTour)
         Me.PanelTourJeu.Controls.Add(Me.Label18)
@@ -239,10 +241,19 @@ Partial Class Jeu
         Me.PanelTourJeu.Size = New System.Drawing.Size(195, 119)
         Me.PanelTourJeu.TabIndex = 3
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 71)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Qui joue?"
+        '
         'JoueurName
         '
         Me.JoueurName.AutoSize = True
-        Me.JoueurName.Location = New System.Drawing.Point(3, 72)
+        Me.JoueurName.Location = New System.Drawing.Point(61, 71)
         Me.JoueurName.Name = "JoueurName"
         Me.JoueurName.Size = New System.Drawing.Size(76, 13)
         Me.JoueurName.TabIndex = 2
@@ -488,4 +499,5 @@ Partial Class Jeu
     Friend WithEvents picMain2 As PictureBox
     Friend WithEvents picMain1 As PictureBox
     Friend WithEvents swap As PictureBox
+    Friend WithEvents Label2 As Label
 End Class
